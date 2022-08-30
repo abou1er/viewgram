@@ -1,5 +1,11 @@
+<!-- navbar by menu.componet -->
+<app-menu></app-menu>
+<!-- navbar by menu.componet -->
+
+
+
 <!-- test1 -->
-<h1>{{title}}</h1>
+<h1>{{title}} 33333</h1>
 <h2>{{subtitle}}</h2>
 
 <div style=" width:400px;">
@@ -8,118 +14,16 @@
 
 <ng-template #contraireIf>
 <p>no habla </p>
-<b>et la</b>
+<b>et g la</b>
 </ng-template>
 
 
-<ul>
-  <li *ngFor="let g of gramMagics">
-    coucou {{g.profil.nom}}
-  </li>
-</ul>
-
-<!-- fin test1 -->
-<div class="w-100 border mt-5 mb-5"></div>
-<!-- exo avant angular -->
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">magikGram</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">un gramMagic</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Saisir la recherche" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Rechercher</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-
-  <div class="b-rainbow"> </div>
-  <!-- <div class="b-rainbow2"></div> -->
-</header>
-
-<main class="container">
-  <h1>magikGram !</h1>
+<!-- boucle des carte -->
+<app-grammagik-list></app-grammagik-list>
+<!-- fin boucle des carte -->
 
 
-  <div class="row">
-    <div class="col-sm-9 mb-5">
-      <article class="row mb-3 shadow">
-        <header class="col">
-          <div class="row">
-            <div class="col-7">
-              <h2>Magic pétillance</h2>
-            </div>
-            <div class="col text-end">[...]</div>
-          </div>
-        </header>
 
-        <div class="w-100"></div>
-        <div class="col pb-2">
-          <img class="img-fluid" src="../assets/img/02-cocktail-cucumber-rose-soda.gif"
-            alt="cocktail-cucumber-rose-soda">
-        </div>
-        <div class="w-100"></div>
-        <div class="col footer pb-2">
-          <div class="d-flex">
-            <div class="icone">
-              <a  class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-                <i class="fa-solid fa-heart"></i>
-              </a>
-              
-            </div>
-
-            <div class="ms-2"><i class="fa-solid fa-fire-flame-curved"></i></div>
-          </div>
-        </div>
-
-      </article>
-
-      <article class="row mb-3 shadow">
-        <header class="col">
-          <div class="row">
-            <div class="col-7">
-              <h2>Fraise qui goutte</h2>
-            </div>
-            <div class="col text-end">[...]</div>
-          </div>
-        </header>
-        <div class="w-100"></div>
-        <div class="col pb-2">
-          <img class="img-fluid" src="../assets/img/03-fraise-water-summer.gif" alt="fraise qui goutte">
-        </div>
-        <div class="w-100"></div>
-        <div class="col footer pb-2">
-          <div class="d-flex">
-            <div class="icone">
-              <i class="fa-solid fa-heart"></i>
-            </div>
-
-            <div class="ms-2"><i class="fa-solid fa-fire-flame-curved"></i></div>
-          </div>
-        </div>
-      </article>
-
-
-    </div>
-
-    <div class="col-sm 	.d-none .d-sm-block ">
-      menu burger <i style="color:red"> a fr plus tard</i>
-    </div>
-  </div>
-</main>
 
 <!-- <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalHeart">
   Launch demo modal
