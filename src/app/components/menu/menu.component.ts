@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  @ViewChild('inputSearch', {static: false}) searchZone!: ElementRef;
+
+  @Output()
+
+  goSearch: EventEmitter<string> = new EventEmitter<string>;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -14,6 +20,15 @@ export class MenuComponent implements OnInit {
 
 
   rechercher(){
-    
+  const searchValue =this.searchZone.nativeElement.value;
+
+  this.goSearch.emit(searchValue);
+
   }
+
+
+
+
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GramMagik } from 'src/app/models/gram-magik';
 
 @Component({
@@ -14,7 +14,14 @@ export class GrammagikListComponent implements OnInit {
     
     {urlImg:'../assets/img/05-soupoudrage-cake.gif',titre:'Perlimpinpin saupoudrage de perlimpinpinexigé', 
     profil:{nom: 'Poter', gramMagik: []}},
-  ]
+  ];
+
+
+  @Input()
+  set filtre(valeur: string){
+console.log('grammagiklistcomponent', valeur);
+
+  }
 
   constructor() { }
 

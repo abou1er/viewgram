@@ -1,32 +1,21 @@
 <!-- navbar by menu.componet -->
-<app-menu></app-menu>
+<app-menu (goSearch)="rechercherMagikgram($event)"></app-menu>
 <!-- navbar by menu.componet -->
 
 
 
 <!-- test1 -->
-<h1>{{title}} 33333</h1>
-<h2>{{subtitle}}</h2>
-
-<!-- <div style=" width:400px;">
-<img *ngIf="logoAppli; else contraireIf" class="img-fluid" src="../assets/img/05-soupoudrage-cake.gif" alt="">
-</div>
-
-<ng-template #contraireIf>
-<p>no habla </p>
-<b>et g la</b>
-</ng-template> -->
+<h1>{{title}} 💫</h1>
 
 
 <!-- start container card -->
 <main class="container">
-  <h1>magikGram !</h1>
   <div class="row">
     <div class="col-sm-9 mb-5">
 
       
 <!-- boucle des carte -->
-<app-grammagik-list></app-grammagik-list>
+<app-grammagik-list [filtre]="searchingValue"></app-grammagik-list>
 <!-- fin boucle des carte -->
 
 
