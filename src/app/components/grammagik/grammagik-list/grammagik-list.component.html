@@ -1,53 +1,8 @@
-<ul>
+<!-- <ul>
     <li *ngFor="let g of gramMagics">
       coucou {{g.profil.nom}}
     </li>
-  </ul>
+  </ul> -->
   
-  <main class="container">
-    <h1>magikGram !</h1>
-  
-  
-    <div class="row">
-      <div class="col-sm-9 mb-5">
-        <article *ngFor="let g of gramMagics"class="row mb-3 shadow">
-          <header class="col">
-            <div class="row">
-              <div class="col-7">
-                <h2>Magic pétillance</h2>
-              </div>
-              <div class="col text-end">[...]</div>
-            </div>
-          </header>
-  
-          <div class="w-100"></div>
-          <div class="col pb-2">
-            <img class="img-fluid" src="../assets/img/02-cocktail-cucumber-rose-soda.gif"
-              alt="cocktail-cucumber-rose-soda">
-          </div>
-          <div class="w-100"></div>
-          <div class="col footer pb-2">
-            <div class="d-flex">
-              <div class="icone">
-                <a  class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-                  <i class="fa-solid fa-heart"></i>
-                </a>
-                
-              </div>
-  
-              <div class="ms-2"><i class="fa-solid fa-fire-flame-curved"></i></div>
-            </div>
-          </div>
-  
-        </article>
-  
-       
-  
-  
-      </div>
-  
-      <div class="col-sm 	.d-none .d-sm-block ">
-        menu burger <i style="color:red"> a fr plus tard</i>
-      </div>
-    </div>
-  </main>
+
+  <app-grammagik-single [grammagikSingle]="g" *ngFor="let g of gramMagics"></app-grammagik-single>
