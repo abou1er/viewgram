@@ -7,11 +7,10 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '
 })
 export class MenuComponent implements OnInit {
 
-  @ViewChild('inputSearch', {static: false}) searchZone!: ElementRef;
+  @ViewChild('inputSearch', {static: false}) searchZone!: ElementRef; //récupère valeur de inputSearch et va stocker dans searchZone
 
   @Output()
-
-  goSearch: EventEmitter<string> = new EventEmitter<string>;
+  goSearch: EventEmitter<string> = new EventEmitter<string>() ;
 
   constructor() { }
 
@@ -20,7 +19,9 @@ export class MenuComponent implements OnInit {
 
 
   rechercher(){
-  const searchValue =this.searchZone.nativeElement.value;
+    console.log('menu.component', this.searchZone.nativeElement.value);
+    
+  const searchValue = this.searchZone.nativeElement.value;
 
   this.goSearch.emit(searchValue);
 
