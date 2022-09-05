@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GramMagik } from 'src/app/models/gram-magik';
+import { GrammagikService } from 'src/app/shared/services/grammagik/grammagik.service';
 import { LoggerService } from 'src/app/shared/services/logger/logger.service';
 
 @Component({
@@ -9,20 +10,20 @@ import { LoggerService } from 'src/app/shared/services/logger/logger.service';
 })
 export class GrammagikListComponent implements OnInit {
 
-  constructor(private _loggerService: LoggerService){
+  constructor(private _loggerService: LoggerService, private _grammagikService: GrammagikService){
 
   }
 
-
-  gramMagics : GramMagik[] = 
+  gramMagics :  any;
+  // gramMagics : GramMagik[] = 
   
-  [
-    {urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif', titre:'Pétillance exigé', 
-    profil:{nom: 'Larry', gramMagik: []}},
+  // [
+  //   {urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif', titre:'Pétillance exigé', 
+  //   profil:{nom: 'Larry', gramMagik: []}},
     
-    {urlImg:'../assets/img/05-soupoudrage-cake.gif',titre:'Perlimpinpin saupoudrage de perlimpinpinexigé', 
-    profil:{nom: 'Poter', gramMagik: []}},
-  ];
+  //   {urlImg:'../assets/img/05-soupoudrage-cake.gif',titre:'Perlimpinpin saupoudrage de perlimpinpinexigé', 
+  //   profil:{nom: 'Poter', gramMagik: []}},
+  // ];
 
 
   @Input()
@@ -32,6 +33,8 @@ console.log('grammagiklistcomponent', valeur);
   }
 
   ngOnInit(): void {
+    this.gramMagics = this._grammagikService.getAll();
+    this._loggerService.log('this.gramMagics  ', this.gramMagics)
   }
 
   
