@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { GramMagik } from 'src/app/models/gram-magik';
 import { Profil } from 'src/app/models/profil';
 
@@ -42,8 +43,17 @@ export class GrammagikService {
 
 
   return allGramMagics;  // peut importe la facon ne pas oublier de return
-
-
 }
+
+/***
+ * retourne lobservable pour s'inscrire à la réception des données
+ * // rend les données observable. Renvoi le tableau de mes données
+ */
+
+getAll_Observable(): Observable<GramMagik[]>{
+  const monTableau = this.getAll();
+  return of(monTableau)
+}
+
 
 }
