@@ -10,6 +10,10 @@ export class GrammagikService {
   constructor() { }
 
   getAll(){
+    /**
+     * Retourne la liste complète des gramMagik
+     */
+
     const allGramMagics : GramMagik[] = []
   
     
@@ -23,7 +27,7 @@ export class GrammagikService {
       allGramMagics.push(gramMagic)
 
  
-
+    
   // 2eme facon de faire
   allGramMagics.push({
     urlImg:'../assets/img/05-soupoudrage-cake.gif',

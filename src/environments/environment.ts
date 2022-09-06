@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  
+  apis:{
+    grammagik:{
+      url: 'https://c33fe049-4bc3-45bd-a0f5-466263f1aaa7.mock.pstmn.io/grammagik'
+    }
+  },
 };
 
 /*
