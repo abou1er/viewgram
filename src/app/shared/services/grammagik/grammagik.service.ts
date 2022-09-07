@@ -1,14 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { interval, map, Observable, of } from 'rxjs';
 import { GramMagik } from 'src/app/models/gram-magik';
 import { Profil } from 'src/app/models/profil';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GrammagikService {
 
-  constructor() { }
+  constructor(private _httpClient: HttpClient) { }
 
   getAll(){
     /**
@@ -36,9 +38,9 @@ export class GrammagikService {
     profil:{nom: 'Poter', gramMagik: []}
   },
   {
-    urlImg:'../assets/img/05-soupoudrage-cake.gif',
-    titre:'Perlimpinpin saupoudrage de perlimpinpinexigé',
-    profil:{nom: 'Poter', gramMagik: []}
+    urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif',
+    titre:'Pétillance exigé',
+    profil:{nom: 'Larry', gramMagik: []}
   })
 
 
@@ -51,9 +53,29 @@ export class GrammagikService {
  */
 
 getAll_Observable(): Observable<GramMagik[]>{
-  const monTableau = this.getAll();
-  return of(monTableau)
+  // const monTableau = this.getAll();
+  //return of(monTableau)  // ligne OK 
+
+                        // en dessous test avec interval + map
+                        /****interval map */
+  // return interval(1000).pipe( //interval return un entier
+  // map(entier=>[             //à chaque fois que mon entier et envoyé va permettre d'envoyer mon tableau avec
+  //   {
+  //     urlImg:'../assets/img/05-soupoudrage-cake.gif',
+  //   titre: entier + ' Perlimpinpin saupoudrage de perlimpinpinexigé',
+  //   profil:{nom: 'Poter', gramMagik: []
+  //   }
+  // },
+  // {
+  //   urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif',
+  //   titre:'Pétillance exigé',
+  //   profil:{nom: 'Larry', gramMagik: []}
+  // }
+  // ])
+  // );
+  /**********************fin interval map */
+
+  /**  httClient get de ma bdd mock url*/     //environement ne pas prendre le .prod
+return this._httpClient.get<GramMagik[]>(environment.apis.grammagik.url); // get de mes objet contenue dans l'url de mon mock
 }
-
-
 }
