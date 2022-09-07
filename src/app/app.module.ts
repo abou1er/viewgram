@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GrammagikListComponent } from './components/grammagik/grammagik-list/grammagik-list.component';
 import { GrammagikSingleComponent } from './components/grammagik/grammagik-single/grammagik-single.component';
+import { AddGrammagikComponent } from './components/grammagik/features/add-grammagik/add-grammagik.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     GrammagikListComponent,
-    GrammagikSingleComponent
+    GrammagikSingleComponent,
+    AddGrammagikComponent
   ],
   imports: [
     BrowserModule,

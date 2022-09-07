@@ -3,6 +3,25 @@
       coucou {{g.profil.nom}}
     </li>
   </ul> -->
+  <div class="row">
+    <div class="col">
+      <button type="button" (click)="runAddGrammagic()" class="btn btn-success"> Ajouter un grammagik</button>
+    </div>
+  </div>
+
+  <div class="row mt-5 mb-5 border border-danger">
+    <app-add-grammagik *ngIf="addGrammagic" (cancelAddGrammagik)="invisibleZoneAddGrammagic()" ></app-add-grammagik>
+  </div>
   
 
   <app-grammagik-single [grammagikSingle]="g" *ngFor="let g of gramMagics"></app-grammagik-single>
+
+
+
+
+
+  <div class="row mt-5">
+    <div class="col">
+      <button type="button" class="btn btn-warning"> Ajouter un grammagik</button>
+    </div>
+  </div>

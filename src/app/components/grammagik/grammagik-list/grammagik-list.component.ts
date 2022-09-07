@@ -11,16 +11,25 @@ import { LoggerService } from 'src/app/shared/services/logger/logger.service';
 })
 export class GrammagikListComponent implements OnInit, OnDestroy {
 
+  
+  
+
   _lesSouscriptions: Subscription[] = [];
 
   constructor(private _loggerService: LoggerService, private _grammagikService: GrammagikService,){
 
   }
+
+  gramMagics :  any;
+  
+  addGrammagic: any;
+
+
 ngOnDestroy():void{
   this._lesSouscriptions.forEach(item => item.unsubscribe())
 }
 
-  gramMagics :  any;
+
 
   @Input()
   set filtre(valeur: string){
@@ -39,8 +48,17 @@ console.log('grammagiklistcomponent', valeur);
 
   }
 
-  
+  runAddGrammagic(): any{
+    // this.addGrammagic = !this.addGrammagic;
+    this.addGrammagic = new GramMagik();
 
+    this._loggerService.log('this.addGrammagic  ', this.addGrammagic)
+  }
+
+
+  invisibleZoneAddGrammagic(){
+    this.addGrammagic = null
+  }
 }
 
 
