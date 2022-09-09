@@ -10,9 +10,10 @@
   </div>
 
   <div class="row mt-5 mb-5 border border-danger">
-    <app-add-grammagik *ngIf="addGrammagic" (cancelAddGrammagik)="invisibleZoneAddGrammagic()" ></app-add-grammagik>
+    <app-add-grammagik *ngIf="addGrammagic" [infoGrammagic]="addGrammagic" (cancelAddGrammagik)="invisibleZoneAddGrammagic()" ></app-add-grammagik>
   </div>
   
+
 
   <app-grammagik-single [grammagikSingle]="g" *ngFor="let g of gramMagics"></app-grammagik-single>
 

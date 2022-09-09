@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-add-grammagik',
   templateUrl: './add-grammagik.component.html',
@@ -7,14 +6,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AddGrammagikComponent implements OnInit {
   @Output()
-  public cancelAddGrammagik: EventEmitter<any> = new EventEmitter<any>();
-  constructor() { }
+  public cancelAddGrammagik: EventEmitter<any> = new EventEmitter<any>(); //va émmetre l'info vers grammagik-list
 
+@Input()
+infoGrammagic : any;
+
+  constructor() { }
   ngOnInit(): void {
   }
-
   cancelAddGrammagic(){
-    this.cancelAddGrammagik.emit({});
+    this.cancelAddGrammagik.emit({}); //({}) si null ne retournera auvun élément
     console.log("this.cancelAddGrammagik.emit({})");
     
   }

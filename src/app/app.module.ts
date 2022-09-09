@@ -8,6 +8,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { GrammagikListComponent } from './components/grammagik/grammagik-list/grammagik-list.component';
 import { GrammagikSingleComponent } from './components/grammagik/grammagik-single/grammagik-single.component';
 import { AddGrammagikComponent } from './components/grammagik/features/add-grammagik/add-grammagik.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { AddGrammagikComponent } from './components/grammagik/features/add-gramm
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

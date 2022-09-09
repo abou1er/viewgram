@@ -51,7 +51,7 @@ console.log('grammagiklistcomponent', valeur);
   runAddGrammagic(): any{
     // this.addGrammagic = !this.addGrammagic;
     this.addGrammagic = new GramMagik();
-
+    this.addGrammagic.titre= "mamamia";
     this._loggerService.log('this.addGrammagic  ', this.addGrammagic)
   }
 
