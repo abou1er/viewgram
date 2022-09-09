@@ -14,6 +14,10 @@ infoGrammagic : any;
   constructor() { }
   ngOnInit(): void {
   }
+
+  addGrammagic(){}
+
+
   cancelAddGrammagic(){
     this.cancelAddGrammagik.emit({}); //({}) si null ne retournera auvun élément
     console.log("this.cancelAddGrammagik.emit({})");

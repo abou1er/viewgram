@@ -1,19 +1,22 @@
-
 {{infoGrammagic | json}}
 
-<div class="row">
- <div class="col">Titre</div>
- <div class="col">
-    <input type="text" [(ngModel)]="infoGrammagic.titre" required></div>
-</div>
-
-<div class="row">
-
-    <div class="col">
+<form #formAdd="ngForm">
+    <div class="row">
+        <div class="col">Titre</div>
+        <div class="col">
+            <input type="text" name="titre" [(ngModel)]="infoGrammagic.titre" required>
+        </div>
     </div>
 
-    <div class="col">
-        <button type="button" (click)="cancelAddGrammagic()"  class="btn btn-warning" > Annuler ajout</button>
+    <div class="row">
 
+        <div class="col">
+            <button type="submit" [disabled]="! formAdd.form.valid" (click)="addGrammagic()" class="btn btn-info"> new grammagik</button>
+        </div>
+
+        <div class="col">
+            <button type="button" (click)="cancelAddGrammagic()" class="btn btn-warning"> Annuler ajout</button>
+
+        </div>
     </div>
-</div>
+</form>
