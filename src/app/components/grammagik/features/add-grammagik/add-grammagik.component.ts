@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GrammagikService } from 'src/app/shared/services/grammagik/grammagik.service';
 @Component({
   selector: 'app-add-grammagik',
   templateUrl: './add-grammagik.component.html',
@@ -11,11 +12,14 @@ export class AddGrammagikComponent implements OnInit {
 @Input()
 infoGrammagic : any;
 
-  constructor() { }
+  constructor(private _grammagikService : GrammagikService) { }
   ngOnInit(): void {
   }
 
-  addGrammagic(){}
+  addGrammagic(){
+    this._grammagikService.addGrammagik(this.infoGrammagic).subscribe(data => this.infoGrammagic = data);
+  //todo informer le parent
+  }
 
 
   cancelAddGrammagic(){

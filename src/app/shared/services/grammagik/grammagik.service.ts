@@ -32,16 +32,16 @@ export class GrammagikService {
  
     
   // 2eme facon de faire
-  allGramMagics.push({
-    urlImg:'../assets/img/05-soupoudrage-cake.gif',
-    titre:'Perlimpinpin saupoudrage de perlimpinpinexigé',
-    profil:{nom: 'Poter', gramMagik: []}
-  },
-  {
-    urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif',
-    titre:'Pétillance exigé',
-    profil:{nom: 'Larry', gramMagik: []}
-  })
+  // allGramMagics.push({
+  //   urlImg:'../assets/img/05-soupoudrage-cake.gif',
+  //   titre:'Perlimpinpin saupoudrage de perlimpinpinexigé',
+  //   profil:{nom: 'Poter', gramMagik: []}
+  // },
+  // {
+  //   urlImg:'../assets/img/02-cocktail-cucumber-rose-soda.gif',
+  //   titre:'Pétillance exigé',
+  //   profil:{nom: 'Larry', gramMagik: []}
+  // })
 
 
   return allGramMagics;  // peut importe la facon ne pas oublier de return
@@ -78,4 +78,15 @@ getAll_Observable(): Observable<GramMagik[]>{
   /**  httClient get de ma bdd mock url*/     //environement ne pas prendre le .prod
 return this._httpClient.get<GramMagik[]>(environment.apis.grammagik.url); // get de mes objet contenue dans l'url de mon mock
 }
+
+
+/**
+ * 
+ * ajout du magikgram : envoie données en json vers l'api mock et récupère le magikgram ajouté
+ * 
+ */
+addGrammagik(grammagic: GramMagik): Observable<GramMagik> {
+  return this._httpClient.post<GramMagik>(environment.apis.grammagik.url, grammagic);
+}
+
 }

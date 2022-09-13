@@ -4,7 +4,11 @@
     <div class="row">
         <div class="col">Titre</div>
         <div class="col">
-            <input type="text" name="titre" [(ngModel)]="infoGrammagic.titre" required>
+            <input type="text" #titre="ngModel" name="titre" [(ngModel)]="infoGrammagic.titre" required>
+
+            <!-- <span [style.visibility]="titre.valid ? 'hidden' : 'visible'">titre obligatoire</span> -->
+            <!-- les 2 facons de faire fonctionnent -->
+            <span [hidden]="titre.valid">titre obligatoire</span>
         </div>
     </div>
 

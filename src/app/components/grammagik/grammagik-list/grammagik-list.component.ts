@@ -42,8 +42,14 @@ console.log('grammagiklistcomponent', valeur);
     // this._loggerService.log('this.gramMagics  ', this.gramMagics)
 
     const subscriptionEnCours = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagics = unTableau);
+    
+    
     this._lesSouscriptions.push(subscriptionEnCours);
-    this._loggerService.log('this.gramMagics  ', this.gramMagics)
+
+
+    // this.gramMagics = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagics = unTableau);
+    
+    // this._loggerService.log('this.gramMagics liste ',this.gramMagics )
 
 
   }
