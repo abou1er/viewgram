@@ -9,20 +9,20 @@ import { GrammagikListComponent } from './components/grammagik/grammagik-list/gr
 import { GrammagikSingleComponent } from './components/grammagik/grammagik-single/grammagik-single.component';
 import { AddGrammagikComponent } from './components/grammagik/features/add-grammagik/add-grammagik.component';
 import { FormsModule } from '@angular/forms';
+import { GrammagikModule } from './components/grammagik/grammagik.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    GrammagikListComponent,
-    GrammagikSingleComponent,
-    AddGrammagikComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    // FormsModule,
     HttpClientModule,
+    GrammagikModule
 
   ],
   providers: [],

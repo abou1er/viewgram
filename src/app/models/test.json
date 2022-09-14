@@ -1,23 +1,28 @@
 
-[{
-  "urlImg":"../assets/img/07-omelette.gif",
-  "titre":"Omelette en chargement",
-  "profil":{"nom": "Joey", "gramMagik": []}
-},
-{
-  "urlImg":"../assets/img/09-dwich-succulent.gif",
-  "titre":"Avec sauce même si elle s'échappe",
-  "profil":{"nom": "Yvonne", "gramMagik": []}
-},
+[
   {
+    "id":8,
     "urlImg":"../assets/img/05-soupoudrage-cake.gif",
     "titre":"Perlimpinpin saupoudrage de perlimpinpinexigé",
     "profil":{"nom": "Poter", "gramMagik": []}
   },
   {
+    "id":9,
     "urlImg":"../assets/img/02-cocktail-cucumber-rose-soda.gif",
-    "titre":"PPétillance exigé",
+    "titre":"Pétillance exigé",
     "profil":{"nom": "Larry", "gramMagik": []}
+  },
+   {
+    "id":10,
+    "urlImg":"../assets/img/09-dwich-succulent.gif",
+    "titre":"Avec sauce même si elle s'échappe",
+    "profil":{"nom": "Yvonne", "gramMagik": []}
+  },
+  {
+    "id":11,
+    "urlImg":"../assets/img/07-omelette.gif",
+    "titre":"Omelette en chargement",
+    "profil":{"nom": "Joey", "gramMagik": []}
   }]
 
  

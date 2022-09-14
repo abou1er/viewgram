@@ -43,7 +43,6 @@ console.log('grammagiklistcomponent', valeur);
 
     const subscriptionEnCours = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagics = unTableau);
     
-    
     this._lesSouscriptions.push(subscriptionEnCours);
 
 
