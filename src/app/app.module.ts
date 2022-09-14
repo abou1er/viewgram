@@ -10,6 +10,7 @@ import { GrammagikSingleComponent } from './components/grammagik/grammagik-singl
 import { AddGrammagikComponent } from './components/grammagik/features/add-grammagik/add-grammagik.component';
 import { FormsModule } from '@angular/forms';
 import { GrammagikModule } from './components/grammagik/grammagik.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { GrammagikModule } from './components/grammagik/grammagik.module';
     AppRoutingModule,
     // FormsModule,
     HttpClientModule,
+    SharedModule,
     GrammagikModule
 
   ],

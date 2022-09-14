@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GrammagikService } from 'src/app/shared/services/grammagik/grammagik.service';
+
+import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
+import { Observable, Subject } from 'rxjs';
+
 @Component({
   selector: 'app-add-grammagik',
   templateUrl: './add-grammagik.component.html',
@@ -14,6 +18,13 @@ infoGrammagic : any;
 
   constructor(private _grammagikService : GrammagikService) { }
   ngOnInit(): void {
+    WebcamUtil.getAvailableVideoInputs()
+    .then((mediaDevices: MediaDeviceInfo[]) => {
+      // this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+    });
+
+
+
   }
 
   addGrammagic(){
@@ -27,5 +38,49 @@ infoGrammagic : any;
     console.log("this.cancelAddGrammagik.emit({})");
     
   }
+
+
+  public deviceId: string | any;
+  public videoOptions: MediaTrackConstraints = {
+    // width: {ideal: 1024},
+    // height: {ideal: 576}
+  };
+  public errors: WebcamInitError[] = [];
+
+  // latest snapshot
+  public webcamImage: WebcamImage | any;
+
+  
+  // webcam snapshot trigger
+  private trigger: Subject<void> = new Subject<void>();
+
+
+
+
+
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+
+  public handleInitError(error: WebcamInitError): void {
+    this.errors.push(error);
+  }
+
+
+//récupère le selfie qui a été pris
+  public handleImage(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+    this.webcamImage = webcamImage;
+  }
+
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+
+  
 }
   

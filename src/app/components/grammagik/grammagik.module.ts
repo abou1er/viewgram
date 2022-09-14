@@ -4,6 +4,8 @@ import { GrammagikListComponent } from './grammagik-list/grammagik-list.componen
 import { GrammagikSingleComponent } from './grammagik-single/grammagik-single.component';
 import { AddGrammagikComponent } from './features/add-grammagik/add-grammagik.component';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { WebcamModule } from 'ngx-webcam';
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    // FormsModule,
+    SharedModule,
+    WebcamModule
   ],
   exports:[
     GrammagikListComponent,

@@ -12,10 +12,26 @@
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col">Prendre un selfie :
+            <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" 
+                
+                [videoOptions]="videoOptions"
+                [imageQuality]="1"
+                (initError)="handleInitError($event)"
+             ></webcam>
+
+        </div>
+        <div class="col"></div>
+    </div>
+
+
     <div class="row">
 
         <div class="col">
-            <button type="submit" [disabled]="! formAdd.form.valid" (click)="addGrammagic()" class="btn btn-info"> new grammagik</button>
+            <button type="submit" [disabled]="! formAdd.form.valid" (click)="addGrammagic()" class="btn btn-info"> new
+                grammagik</button>
         </div>
 
         <div class="col">
