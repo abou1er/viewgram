@@ -22,7 +22,19 @@
                 (initError)="handleInitError($event)"
              ></webcam>
 
+             <button class="actionBtn" (click)="triggerSnapshot();">Prendre un selfie</button>
+             
         </div>
+        <div class="row snapshot" *ngIf="webcamImage">
+            <div class="col">
+                <h2>Nouveau Selfie!</h2>
+                <img [src]="webcamImage.imageAsDataUrl"/>
+            </div>
+            
+        </div>
+
+
+
         <div class="col"></div>
     </div>
 

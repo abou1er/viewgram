@@ -71,8 +71,11 @@ infoGrammagic : any;
 
 //récupère le selfie qui a été pris
   public handleImage(webcamImage: WebcamImage): void {
-    console.info('received webcam image', webcamImage);
+    // console.info('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
+
+    console.log('this.webcamImage', this.webcamImage);
+    
   }
 
 
