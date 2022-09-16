@@ -16,6 +16,7 @@ export class AddGrammagikComponent implements OnInit {
 @Input()
 infoGrammagic : any;
 
+testUrl!: string
   constructor(private _grammagikService : GrammagikService) { }
   ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -48,7 +49,7 @@ infoGrammagic : any;
   public errors: WebcamInitError[] = [];
 
   // latest snapshot
-  public webcamImage: WebcamImage | any;
+  public webcamImage!: WebcamImage;
 
   
   // webcam snapshot trigger
