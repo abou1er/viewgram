@@ -11,11 +11,13 @@ import { AddGrammagikComponent } from './components/grammagik/features/add-gramm
 import { FormsModule } from '@angular/forms';
 import { GrammagikModule } from './components/grammagik/grammagik.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    NotFoundComponent,
     
   ],
   imports: [
@@ -24,7 +26,8 @@ import { SharedModule } from './modules/shared/shared.module';
     // FormsModule,
     HttpClientModule,
     SharedModule,
-    GrammagikModule
+    GrammagikModule,
+    // WebcamModule
 
   ],
   providers: [],

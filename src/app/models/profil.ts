@@ -6,3 +6,4 @@ export class Profil {
     nom!: string;
     gramMagik: GramMagik[] = [];
 }
+
