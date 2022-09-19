@@ -22,11 +22,12 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
   ],
   imports: [
     BrowserModule,
+    GrammagikModule,
     AppRoutingModule,
     // FormsModule,
     HttpClientModule,
     SharedModule,
-    GrammagikModule,
+    
     // WebcamModule
 
   ],

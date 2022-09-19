@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GramMagik } from 'src/app/models/gram-magik';
 import { GrammagikService } from 'src/app/shared/services/grammagik/grammagik.service';
 import { LoggerService } from 'src/app/shared/services/logger/logger.service';
@@ -18,7 +19,7 @@ export class GrammagikSingleComponent implements OnInit {
  
   public grammagikSingle!: GramMagik  //déclaration dans enfant pour que parent récupère
 
-  constructor(private _loggerService: LoggerService, private _grammagikService: GrammagikService,) { }
+  constructor(private _loggerService: LoggerService, private _grammagikService: GrammagikService,private _router: Router) { }
 
   gramMagicss :  any;
 
@@ -30,6 +31,10 @@ export class GrammagikSingleComponent implements OnInit {
       
   //   );
     
+  }
+
+  clashNav(){
+    this._router.navigate(['clash/nouveau'])
   }
 
 }

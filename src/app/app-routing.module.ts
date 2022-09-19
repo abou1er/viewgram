@@ -4,13 +4,13 @@ import { GrammagikListComponent } from './components/grammagik/grammagik-list/gr
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: 'grammagiks', component: GrammagikListComponent },
+  // {path: 'grammagiks', component: GrammagikListComponent },
 
-      //path non correspondant redirige vers le composant 
+      //path null redirige vers le composant 
     {path: '', pathMatch: 'full', redirectTo: '/grammagiks'},
 
 
-     //path null redirige vers lecomposant 
+     //path non correspondant redirige vers notfound 
     {path: '**', component: NotFoundComponent},
 
     
