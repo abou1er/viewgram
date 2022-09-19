@@ -6,18 +6,18 @@
     <div class="row">
       <div class="col-sm-9 mb-5"> -->
 
-        <article class="row mb-3 shadow">
+        <article  class="row mb-3 shadow">
           <header class="col">
             <div class="row">
               <div class="col-7">
-                <h2>{{grammagikSingle.titre}}</h2>
+                <h2>{{grammagikSingle.titre}} {{grammagikSingle.id}}</h2>
               </div>  
               <div class="col text-end">[...]</div>
             </div>
           </header>
   
           <div class="w-100"></div>
-          <div class="col pb-2">
+          <div (click)="consultMagikgram()" class="col pb-2">
             <img class="img-fluid" [src]="grammagikSingle.urlImg"
               alt="alt.. alt">
           </div>

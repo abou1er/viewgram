@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { WebcamModule } from 'ngx-webcam';
 import { GrammagiksRoutingModule } from './grammagiks-routing.module';
+import { LeGrammagikComponent } from './le-grammagik/le-grammagik.component';
 
 
 
@@ -14,7 +15,8 @@ import { GrammagiksRoutingModule } from './grammagiks-routing.module';
   declarations: [
     GrammagikListComponent,
     GrammagikSingleComponent,
-    AddGrammagikComponent
+    AddGrammagikComponent,
+    LeGrammagikComponent
   ],
   imports: [
     CommonModule,

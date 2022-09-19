@@ -15,7 +15,6 @@ export class GrammagikSingleComponent implements OnInit {
   
   @Input()  //déclaration dans enfant pour que parent récupère
 
-
  
   public grammagikSingle!: GramMagik  //déclaration dans enfant pour que parent récupère
 
@@ -34,7 +33,14 @@ export class GrammagikSingleComponent implements OnInit {
   }
 
   clashNav(){
-    this._router.navigate(['clash/nouveau'])
+    this._router.navigate(['clash/nouveau']);
+  }
+
+  consultMagikgram(){
+    // this._router.navigate(['/le-grammagik']);
+    this._router.navigate(['/le-grammagik', this.grammagikSingle.id]);
+    console.log("{grammagikSingle.id", this.grammagikSingle.id);
+    
   }
 
 }
