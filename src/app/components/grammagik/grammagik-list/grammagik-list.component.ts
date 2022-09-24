@@ -24,6 +24,7 @@ export class GrammagikListComponent implements OnInit, OnDestroy {
   
   addGrammagic: any;
 
+  produitInfo: any;
 
 ngOnDestroy():void{
   this._lesSouscriptions.forEach(item => item.unsubscribe())
@@ -64,10 +65,22 @@ console.log('grammagiklistcomponent', valeur);
   invisibleZoneAddGrammagic(){
     this.addGrammagic = null
   }
+
+
+  recupInfoo(g: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
+    this.produitInfo = g;
+    console.log(this.produitInfo)
+  }
+
+
 }
 
+  //créer pour edit stock les info selectionné current model les conserves
 
 
+function recupInfo(g: any, any: any) {
+  throw new Error('Function not implemented.');
+}
   // gramMagics : GramMagik[] = 
   
   // [

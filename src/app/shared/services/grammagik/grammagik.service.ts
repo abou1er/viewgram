@@ -89,4 +89,10 @@ addGrammagik(grammagic: GramMagik): Observable<GramMagik> {
   return this._httpClient.post<GramMagik>(environment.apis.grammagik.url, grammagic);
 }
 
+
+//retourne le magikgram current
+getOne(id: number): Observable<GramMagik> {
+return this._httpClient.get<GramMagik>(environment.apis.grammagik.url+ '/' +id);
+}
+
 }

@@ -1,6 +1,19 @@
 
 [
   {
+    "id":6,
+    "urlImg":"../assets/img/jusTumblr.gif",
+    "titre":"Vitamine au max",
+    "profil":{"nom": "Popeye", "gramMagik": []}
+  },
+  {
+    "id":7,
+    "urlImg":"../assets/img/nishika_hypebeast.gif",
+    "titre":"Party after partY",
+    "profil":{"nom": "Simone Veil", "gramMagik": []}
+  },
+
+  {
     "id":8,
     "urlImg":"../assets/img/05-soupoudrage-cake.gif",
     "titre":"Perlimpinpin saupoudrage de perlimpinpinexigé",
@@ -16,13 +29,21 @@
     "id":10,
     "urlImg":"../assets/img/09-dwich-succulent.gif",
     "titre":"Avec sauce même si elle s'échappe",
-    "profil":{"nom": "Yvonne", "gramMagik": []}
+    "profil":{"nom": "Mister Donald", "gramMagik": []}
   },
   {
     "id":11,
     "urlImg":"../assets/img/07-omelette.gif",
     "titre":"Omelette en chargement",
-    "profil":{"nom": "Joey", "gramMagik": []}
-  }]
+    "profil":{"nom": "Woody Woodpecker", "gramMagik": []}
+  },
+  {
+    "id":12,
+    "urlImg":"../assets/img/04-pears-flowers-fruit-food-water.gif",
+    "titre":"Wet Fruit",
+    "profil":{"nom": "Eve", "gramMagik": []}
+  }
+
+]
 
  

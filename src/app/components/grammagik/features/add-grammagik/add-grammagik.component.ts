@@ -19,13 +19,8 @@ infoGrammagic : any;
 testUrl!: string
   constructor(private _grammagikService : GrammagikService) { }
   ngOnInit(): void {
-    WebcamUtil.getAvailableVideoInputs()
-    .then((mediaDevices: MediaDeviceInfo[]) => {
-      // this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
-    });
-
-
-
+    this.addSelfie()
+   
   }
 
   addGrammagic(){
@@ -40,6 +35,13 @@ testUrl!: string
     
   }
 
+
+  addSelfie(){
+    WebcamUtil.getAvailableVideoInputs()
+    .then((mediaDevices: MediaDeviceInfo[]) => {
+      // this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+    });
+  }
 
   public deviceId: string | any;
   public videoOptions: MediaTrackConstraints = {

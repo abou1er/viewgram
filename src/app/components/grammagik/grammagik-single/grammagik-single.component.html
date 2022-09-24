@@ -1,4 +1,3 @@
-
 <!-- <main class="container">
     <h1>magikGram !</h1>
   
@@ -6,40 +5,70 @@
     <div class="row">
       <div class="col-sm-9 mb-5"> -->
 
-        <article  class="row mb-3 shadow">
-          <header class="col">
-            <div class="row">
-              <div class="col-7">
-                <h2>{{grammagikSingle.titre}} {{grammagikSingle.id}}</h2>
-              </div>  
-              <div class="col text-end">[...]</div>
-            </div>
-          </header>
-  
-          <div class="w-100"></div>
-          <div (click)="consultMagikgram()" class="col pb-2">
-            <img class="img-fluid" [src]="grammagikSingle.urlImg"
-              alt="alt.. alt">
-          </div>
-          <div class="w-100"></div>
-          <div class="col footer pb-2">
-            <div class="d-flex">
-              <div class="icone">
-                <a  class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-                  <i class="fa-solid fa-heart"></i>
-                </a>
-                
-              </div>
-  
-              <div class="ms-2">
-                <button (click)="clashNav()" class="btn border btn-light" type="button">
-                <i class="fa-solid fa-fire-flame-curved"></i>
-              </button>
-              </div>
-            </div>
-          </div>
-  
-        </article>
+<article class="row mb-3 arti shadow">
+  <header class="col">
+    <div class="row">
+      <div class="col-7">
+        <h2>{{grammagikSingle.titre}} {{grammagikSingle.id}}</h2>
+      </div>
+      <!-- <div class="col text-end">[...]</div> -->
+    </div>
+
+  </header>
+  <!-- <div class="b-rainbow"></div> -->
+  <div class="row">
+    <div class="col-6">
+
+
+      <!-- <div class="w-100"> -->
+        <div class="b-rainbow"></div>
+      <!-- </div> -->
+      <div (click)="consultMagikgram(); recupInfoo(grammagikSingle)" class="col pb-2">
+        <div class="b-rainbow "></div>
+        <img class="img-fluid" [src]="grammagikSingle.urlImg" alt="alt.. alt">
+      </div>
+
+    </div>
+
+    <div class="col-6">
+      <div class="rota">
+        <!-- <div class="w-100"> -->
+          <div class="b-rainbow"></div>
+        <!-- </div> -->
+        <div (click)="consultMagikgram(); recupInfoo(grammagikSingle)" class="col pb-2">
+          <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
+          <img class="img-fluid" [src]="grammagikSingle.urlImg" alt="alt.. alt">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin row body -->
+
+  <div class="w-100"></div>
+  <div class="col footer pb-2">
+    <div class="d-flex">
+      <div class="icone">
+        <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+
+      </div>
+
+      <div class="ms-2">
+        <button (click)="clashNav()" class="btn border btn-light" type="button">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+<br><br>
+
 <!--   
        
   
