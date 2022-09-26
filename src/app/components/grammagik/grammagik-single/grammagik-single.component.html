@@ -1,73 +1,3 @@
-<!-- <main class="container">
-    <h1>magikGram !</h1>
-  
-  
-    <div class="row">
-      <div class="col-sm-9 mb-5"> -->
-
-<article class="row mb-3 arti shadow">
-  <header class="col">
-    <div class="row">
-      <div class="col-7">
-        <h2>{{grammagikSingle.titre}} {{grammagikSingle.id}}</h2>
-      </div>
-      <!-- <div class="col text-end">[...]</div> -->
-    </div>
-
-  </header>
-  <!-- <div class="b-rainbow"></div> -->
-  <div class="row">
-    <div class="col-6">
-
-
-      <!-- <div class="w-100"> -->
-        <div class="b-rainbow"></div>
-      <!-- </div> -->
-      <div (click)="consultMagikgram(); recupInfoo(grammagikSingle)" class="col pb-2">
-        <div class="b-rainbow "></div>
-        <img class="img-fluid" [src]="grammagikSingle.urlImg" alt="alt.. alt">
-      </div>
-
-    </div>
-
-    <div class="col-6">
-      <div class="rota">
-        <!-- <div class="w-100"> -->
-          <div class="b-rainbow"></div>
-        <!-- </div> -->
-        <div (click)="consultMagikgram(); recupInfoo(grammagikSingle)" class="col pb-2">
-          <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
-          <img class="img-fluid" [src]="grammagikSingle.urlImg" alt="alt.. alt">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- fin row body -->
-
-  <div class="w-100"></div>
-  <div class="col footer pb-2">
-    <div class="d-flex">
-      <div class="icone">
-        <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-          <i class="fa-solid fa-heart"></i>
-        </a>
-
-      </div>
-
-      <div class="ms-2">
-        <button (click)="clashNav()" class="btn border btn-light" type="button">
-          <i class="fa-solid fa-fire-flame-curved"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-</article>
-
-
-
-
-<br><br>
 
 <!--   
        
@@ -80,3 +10,157 @@
       </div>
     </div>
   </main> -->
+
+  <!-- boucle new -->
+  <div class="border border-warning">
+  <div *ngFor="let gram of gramMagiKs; let i = index">
+    <article class="row mb-3 arti shadow">
+      <header class="col">
+        <div class="row">
+          <div class="col-7">
+            <h2>{{gram.titre}} {{gram.id}}</h2>
+          </div>
+          <!-- <div class="col text-end">[...]</div> -->
+        </div>
+    
+      </header>
+      <!-- <div class="b-rainbow"></div> -->
+      <div class="row">
+        <div class="col-6">
+    
+    
+          <!-- <div class="w-100"> -->
+            <div class="b-rainbow"></div>
+          <!-- </div> -->
+          <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+            <div class="b-rainbow "></div>
+            <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
+          </div>
+    
+        </div>
+    
+        <div class="col-6">
+          <div class="rota">
+            <!-- <div class="w-100"> -->
+              <div class="b-rainbow"></div>
+            <!-- </div> -->
+            <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+              <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
+              <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fin row body -->
+      <div *ngIf="modalCardInfo" class="row">
+        <h2>retour UPDATE selfie</h2>
+        urlSelfie
+        <img class="img-fluid" [src]="carteAmodif.urlSelfie" alt="alt.. alt">
+      </div>
+    
+      <div class="w-100"></div>
+      <div class="col footer pb-2">
+        <div class="d-flex">
+          <div class="icone">
+            <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
+              <i class="fa-solid fa-heart"></i>
+            </a>
+    
+          </div>
+    
+          <!-- Button trigger modal -->
+          <div>
+    <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
+      CARTEINFO Ajouter un reactSelfie
+    </button>
+    </div>
+    
+          <div class="ms-2">
+            <button (click)="clashNav()" class="btn border btn-light" type="button">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
+        
+    
+    
+    </article>
+
+
+ 
+   <!-- Modal -->
+   <div  class="modal fade" id="MOMOdal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div *ngIf="modalCardInfo" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+          <h1>body SNDboucle</h1>
+          <!-- test biddig -->
+          <div class="row">
+            <p>{{this.oneCardInfo.id}}</p>
+            <p>{{this.oneCardInfo.urlImg}}</p>
+            <p>{{this.oneCardInfo.titre}}</p>
+            <p>url self {{this.oneCardInfo.urlSelfie}}</p>
+            
+  
+          </div>
+          <!-- fin test bidig -->
+          <div class="row">
+            <div class="col">Prendre un selfie :
+                <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" 
+                    
+                    [videoOptions]="videoOptions"
+                    [imageQuality]="1"
+                    (initError)="handleInitError($event)"
+                 ></webcam>
+    
+                 <button class="actionBtn" (click)="triggerSnapshot();">Prendre un selfie</button>
+                 
+            </div>
+            <div class="row snapshot" *ngIf="webcamImage">
+                <div class="col">
+                    <h2>Nouveau Selfie!</h2>
+                    <img  [src]="webcamImage.imageAsDataUrl"/>
+  
+
+
+                    <input type="text" name="urlSelfie" [(ngModel)]="this.oneCardInfo.urlSelfie">
+                    <button type="submit" data-bs-dismiss="modal" (click)="vUpdate()"> ajout du selfie</button>
+                </div>
+
+
+                
+            </div>
+            <div class="row">
+             <h2>retour selfie</h2> 
+            </div>
+    
+    
+            <div class="col"></div>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+
+
+
+
+
+  </div>
+
+</div>
+

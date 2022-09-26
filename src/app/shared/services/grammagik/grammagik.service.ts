@@ -95,4 +95,8 @@ getOne(id: number): Observable<GramMagik> {
 return this._httpClient.get<GramMagik>(environment.apis.grammagik.url+ '/' +id);
 }
 
+update(v:any): Observable<GramMagik> {
+  return this._httpClient.patch<GramMagik>(environment.apis.grammagik.url+ '/' +v.id,v);
+  }
+
 }

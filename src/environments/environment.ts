@@ -20,8 +20,11 @@ export const environment = {
       //  url: 'https://938603f7-1ff5-483b-86c7-01671e95bbde.mock.pstmn.io/le-grammgik'
 
        // bdd get et post avec urlSelfie
-       url: 'https://938603f7-1ff5-483b-86c7-01671e95bbde.mock.pstmn.io/grammagiks'
+       //url: 'https://938603f7-1ff5-483b-86c7-01671e95bbde.mock.pstmn.io/grammagiks'
 
+       
+       // bdd get et patch avec urlSelfie
+       url: 'https://49f8c966-ea89-4ab0-982a-9662516dc64d.mock.pstmn.io/grammagiks'
     }
   },
 };

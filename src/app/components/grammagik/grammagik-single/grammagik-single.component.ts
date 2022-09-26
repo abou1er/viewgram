@@ -6,7 +6,8 @@ import { LoggerService } from 'src/app/shared/services/logger/logger.service';
 import { GrammagikListComponent } from '../grammagik-list/grammagik-list.component';
 
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-grammagik-single',
@@ -23,17 +24,61 @@ export class GrammagikSingleComponent implements OnInit {
   public indx!:number;
   infoGrammagic : any;
 
-  constructor(public gramListComponent: GrammagikListComponent,private _loggerService: LoggerService, private _grammagikService: GrammagikService,private _router: Router) { }
 
+
+
+
+
+
+
+  constructor(public gramListComponent: GrammagikListComponent,private _loggerService: LoggerService, private _grammagikService: GrammagikService,private _router: Router) { }
+  _lesSouscriptions: Subscription[] = [];
+  gramMagiKs :  any;
   gramMagicss :  any;
   @Output()
-  produitInfo: any;
+  cartesInfo: any
+  oneCardInfo: any
+  modalCardInfo: boolean =false
+  produitInfo: any = {
+   
+    id: "",
+    imageAs64: "",
+    urlImg: "",
+    titre: "",
+    urlSelfie:"",
+   
+
+    // Profil={
+    //     nom: "",
+    //     grammagik: "",
+    // }
+  }
+
+  carteAmodif: any= {
+   
+    id: "",
+    imageAs64: "",
+    urlImg: "",
+    titre: "",
+    urlSelfie:"",
+   
+
+    // Profil={
+    //     nom: "",
+    //     grammagik: "",
+    // }
+  }
+
+
   // urlSelfie: any;
   boolUrlSelfie= false;
 
   ngOnInit(): void {
+    const subscriptionEnCours = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagiKs = unTableau);
     
-  //   this.gramMagicss = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagicss = unTableau);
+    this._lesSouscriptions.push(subscriptionEnCours);
+
+    this.gramMagicss = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagicss = unTableau);
     
   //   this._loggerService.log('this.gramMagics liste ',this.gramMagicss )
   //   console.log(
@@ -57,16 +102,30 @@ export class GrammagikSingleComponent implements OnInit {
 
   recupInfoo(g: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
     this.produitInfo = g;
-    console.log("this.produitInfo singlecomponent", this.produitInfo)
+    console.log("recupInfoo this.produitInfo singlecomponent", this.produitInfo)
+    this.grammagikSingle.id = this.produitInfo.id
+    this.grammagikSingle.urlSelfie = this.produitInfo.urlSelfie
+    console.log("recupInfoo this.grammagikSingle.id ",  this.grammagikSingle.id);
+    console.log("recupInfoo this.grammagikSingle.urlSelfie ",  this.grammagikSingle.urlSelfie);
+    
+  }
+
+
+  infoCard(gram: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
+    this.modalCardInfo= true;
+    this.oneCardInfo = gram;
+    
+    console.log("infoCard() oneCardInfo singlecomponent", this.oneCardInfo)
+    
   }
 
 
   @Output() emitter:EventEmitter<string>
   = new EventEmitter<any>();
 
-emit(keyword: string | undefined){
- this.emitter.emit(keyword);
-}
+  emit(keyword: string | undefined){
+  this.emitter.emit(keyword);
+  }
 
 
 
@@ -114,10 +173,10 @@ private trigger: Subject<void> = new Subject<void>();
 
 
 
-public triggerSnapshot(i: any): void {
-  let qqch :any;
+public triggerSnapshot() {
+  // let qqch :any;
   this.trigger.next();
-  qqch = i
+  // qqch = i
 }
 
 
@@ -128,13 +187,34 @@ public handleInitError(error: WebcamInitError): void {
 
 //récupère le selfie qui a été pris
 public handleImage(webcamImage: WebcamImage): void {
+ 
+  
   // console.info('received webcam image', webcamImage);
   this.webcamImage = webcamImage;
 
   console.log('this.webcamImage', this.webcamImage);
-  this.grammagikSingle.urlSelfie= webcamImage.imageAsDataUrl
+// console.log("this.produitInfo.titre ", this.produitInfo.titre);
+
+//   // this.grammagikSingle.id= 8,
+//   this.grammagikSingle.urlImg= this.produitInfo.urlImg,
+//   this.grammagikSingle.titre= "this.produitInfo.titre",
+//   this.produitInfo.urlSelfie
+//   // this.grammagikSingle.urlSelfie= this.produitInfo.urlSelfie,
+
+
+//   // test sans method service patch
+//   this.produitInfo.urlSelfie= webcamImage.imageAsDataUrl,
+//   this.grammagikSingle.urlSelfie= this.produitInfo.urlSelfie,
+//   console.log("handleImage", this.grammagikSingle.urlSelfie);
+
+//   // this.grammagikSingle.id = this.produitInfo.id
+//   //   this.grammagikSingle.urlSelfie = this.produitInfo.urlSelfie
+ 
+//   // test avec method service patch
+//   // this.vUpdate()
+//   console.log("handleImage", this.grammagikSingle);
   
-  this.boolUrlSelfie= true;
+  
   
 }
 
@@ -142,6 +222,18 @@ public handleImage(webcamImage: WebcamImage): void {
 public get triggerObservable(): Observable<void> {
   return this.trigger.asObservable();
 }
+
+
+
+vUpdate(){
+  this._grammagikService.update(this.oneCardInfo).subscribe(() => {
+    // this.detailRecup = data
+
+    this.carteAmodif.urlSelfie= this.webcamImage.imageAsDataUrl
+    console.log("update effectué ??");
+    
+  })  }
+
 
 
 }
