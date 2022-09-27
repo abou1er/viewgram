@@ -1,6 +1,90 @@
 
 <!--   
        
+    </div>
+  </main> -->
+
+  <!-- boucle new -->
+  <div class="border container-fluid border-warning">
+    <div *ngFor="let gram of gramMagiKs; let i = index">
+      <article class="row mb-3 arti shadow">
+        <header class="col-12">
+          <div class="row">
+            <div class="col-7">
+              <h2>{{gram.titre}} {{gram.id}}</h2>
+            </div>
+            <!-- <div class="col text-end">[...]</div> -->
+          </div>
+      
+        </header>
+        <!-- <div class="b-rainbow"></div> -->
+        <div class="row">
+          <div class="col-4">
+      
+      
+            <!-- <div class="w-100"> -->
+              <div class="b-rainbow"></div>
+            <!-- </div> -->
+            <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+              <div class="b-rainbow "></div>
+              <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
+            </div>
+      
+          </div>
+      <!-- test retour selfie -->
+      <div class="col-4" *ngIf="modalCardInfo" >
+        <h2>retour UPDATE selfie</h2>
+        urlSelfie
+        <!-- <p>{{gram.urlSelfie}}</p> -->
+        <img class="img-fluid" style="width: 400px;" name="urlImg" [src]="gram.urlSelfie" alt="alt.. alt">
+      </div>
+      <!-- finretour sefie -->
+          <div class="col-4">
+            <div class="rota">
+              <!-- <div class="w-100"> -->
+                <div class="b-rainbow"></div>
+              <!-- </div> -->
+              <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+                <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
+                <img class="img-fluid"  [src]="gram.urlImg" alt="alt.. alt">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fin row body -->
+        
+      
+        <div class="w-100"></div>
+        <div class="col footer pb-2">
+          <div class="d-flex">
+            <div class="icone">
+              <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
+                <i class="fa-solid fa-heart"></i>
+              </a>
+      
+            </div>
+      
+            <!-- Button trigger modal -->
+            <div>
+      <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
+        CARTEINFO Ajouter un reactSelfie
+      </button>
+      </div>
+      
+            <div class="ms-2">
+              <button (click)="clashNav()" class="btn border btn-light" type="button">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        
+          
+      
+      
+      </article>
+  
   
   
       </div>
@@ -8,91 +92,8 @@
       <div class="col-sm 	.d-none .d-sm-block ">
         menu burger <i style="color:red"> a fr plus tard</i>
       </div>
-    </div>
-  </main> -->
-
-  <!-- boucle new -->
-  <div class="border border-warning">
-  <div *ngFor="let gram of gramMagiKs; let i = index">
-    <article class="row mb-3 arti shadow">
-      <header class="col">
-        <div class="row">
-          <div class="col-7">
-            <h2>{{gram.titre}} {{gram.id}}</h2>
-          </div>
-          <!-- <div class="col text-end">[...]</div> -->
-        </div>
-    
-      </header>
-      <!-- <div class="b-rainbow"></div> -->
-      <div class="row">
-        <div class="col-6">
-    
-    
-          <!-- <div class="w-100"> -->
-            <div class="b-rainbow"></div>
-          <!-- </div> -->
-          <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
-            <div class="b-rainbow "></div>
-            <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
-          </div>
-    
-        </div>
-    
-        <div class="col-6">
-          <div class="rota">
-            <!-- <div class="w-100"> -->
-              <div class="b-rainbow"></div>
-            <!-- </div> -->
-            <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
-              <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
-              <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- fin row body -->
-      <div *ngIf="modalCardInfo" class="row">
-        <h2>retour UPDATE selfie</h2>
-        urlSelfie
-        <!-- <p>{{gram.urlSelfie}}</p> -->
-        <img class="img-fluid" name="urlImg" [src]="gram.urlSelfie" alt="alt.. alt">
-      </div>
-    
-      <div class="w-100"></div>
-      <div class="col footer pb-2">
-        <div class="d-flex">
-          <div class="icone">
-            <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-              <i class="fa-solid fa-heart"></i>
-            </a>
-    
-          </div>
-    
-          <!-- Button trigger modal -->
-          <div>
-    <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
-      CARTEINFO Ajouter un reactSelfie
-    </button>
-    </div>
-    
-          <div class="ms-2">
-            <button (click)="clashNav()" class="btn border btn-light" type="button">
-              <i class="fa-solid fa-fire-flame-curved"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      
-        
-    
-    
-    </article>
-
-
- 
-   <!-- Modal -->
+  
+ Modal -->
    <div  class="modal fade" id="MOMOdal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div *ngIf="modalCardInfo" class="modal-content">
@@ -174,9 +175,13 @@
 
 
 
-  </div>
 
-</div>
+
+
+
+
+
+<div *ngFor="let gram of gramMagiKs; let i = index">
 
 
 <div class="row">
@@ -184,8 +189,77 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <article class="row mb-3 arti shadow">
+          <header class="col-12">
+            <div class="row">
+              <div class="col-7">
+                <h2>{{gram.titre}} {{gram.id}}</h2>
+              </div>
+              <!-- <div class="col text-end">[...]</div> -->
+            </div>
+        
+          </header>
+          <!-- <div class="b-rainbow"></div> -->
+          <div class="row">
+            <div class="col-6">
+        
+        
+              <!-- <div class="w-100"> -->
+                <div class="b-rainbow"></div>
+              <!-- </div> -->
+              <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+                <div class="b-rainbow "></div>
+                <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
+              </div>
+        
+            </div>
+      
+            <div class="col-6">
+              <div class="rota">
+                <!-- <div class="w-100"> -->
+                  <div class="b-rainbow"></div>
+                <!-- </div> -->
+                <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+                  <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
+                  <img class="img-fluid"  [src]="gram.urlImg" alt="alt.. alt">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- fin row body -->
+          
+        
+          <div class="w-100"></div>
+          <div class="col footer pb-2">
+            <div class="d-flex">
+              <div class="icone">
+                <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
+                  <i class="fa-solid fa-heart"></i>
+                </a>
+        
+              </div>
+        
+              <!-- Button trigger modal -->
+              <div>
+        <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
+          CARTEINFO Ajouter un reactSelfie
+        </button>
+        </div>
+        
+              <div class="ms-2">
+                <button (click)="clashNav()" class="btn border btn-light" type="button">
+                  <i class="fa-solid fa-fire-flame-curved"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+    
+          
+            
+        
+        
+        </article>
+    
       </div>
     </div>
   </div>
@@ -193,10 +267,15 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div *ngIf="modalCardInfo" class="row">
+          <h2>retour UPDATE selfie</h2>
+          urlSelfie
+          <!-- <p>{{gram.urlSelfie}}</p> -->
+          <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="alt.. alt">
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+</div>
