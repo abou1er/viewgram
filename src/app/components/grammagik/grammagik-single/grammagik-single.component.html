@@ -55,7 +55,8 @@
       <div *ngIf="modalCardInfo" class="row">
         <h2>retour UPDATE selfie</h2>
         urlSelfie
-        <img class="img-fluid" [src]="carteAmodif.urlSelfie" alt="alt.. alt">
+        <!-- <p>{{gram.urlSelfie}}</p> -->
+        <img class="img-fluid" name="urlImg" [src]="gram.urlSelfie" alt="alt.. alt">
       </div>
     
       <div class="w-100"></div>
@@ -104,10 +105,23 @@
           <h1>body SNDboucle</h1>
           <!-- test biddig -->
           <div class="row">
-            <p>{{this.oneCardInfo.id}}</p>
+            <h2>biding</h2>
+            <input type="text" class="form-control" placeholder="exemple: ici id" name="id"
+                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.id" required>
+
+                <input type="text" class="form-control" placeholder="exemple: ici titre" name="titre"
+                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.titre" required>
+            
+                <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
+                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.urlSelfie" required>
+
+                <!-- <p type="text" class="form-control" placeholder="exemple: ici titre" name="titre"
+                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.titre" required></p> -->
+
+            <p [(ngModel)] ="oneCardInfo.urlImg" > infoimg </p>
             <p>{{this.oneCardInfo.urlImg}}</p>
             <p>{{this.oneCardInfo.titre}}</p>
-            <p>url self {{this.oneCardInfo.urlSelfie}}</p>
+            <!-- <p>url self {{this.oneCardInfo.urlSelfie}}</p> -->
             
   
           </div>
@@ -162,5 +176,27 @@
 
   </div>
 
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 </div>
 

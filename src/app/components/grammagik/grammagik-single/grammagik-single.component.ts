@@ -203,7 +203,7 @@ public handleImage(webcamImage: WebcamImage): void {
 
 
 //   // test sans method service patch
-//   this.produitInfo.urlSelfie= webcamImage.imageAsDataUrl,
+  this.oneCardInfo.urlSelfie= webcamImage.imageAsDataUrl;
 //   this.grammagikSingle.urlSelfie= this.produitInfo.urlSelfie,
 //   console.log("handleImage", this.grammagikSingle.urlSelfie);
 
