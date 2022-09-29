@@ -11,6 +11,10 @@ import { environment } from 'src/environments/environment';
 export class GrammagikService {
 
   constructor(private _httpClient: HttpClient) { }
+   gramMagic = new GramMagik();
+
+   theyAllGramMagics : any = this.getAll_Observable();
+
 
   getAll(){
     /**
@@ -93,10 +97,41 @@ addGrammagik(grammagic: GramMagik): Observable<GramMagik> {
 //retourne le magikgram current
 getOne(id: number): Observable<GramMagik> {
 return this._httpClient.get<GramMagik>(environment.apis.grammagik.url+ '/' +id);
+
 }
 
 update(v:any): Observable<GramMagik> {
   return this._httpClient.patch<GramMagik>(environment.apis.grammagik.url+ '/' +v.id,v);
   }
 
-}
+
+
+  getByIdService(gramId: number):any{
+    const magikSingleOne = this.theyAllGramMagics.find((magikSingleOne: any) => magikSingleOne.id === gramId)
+  
+    if (!magikSingleOne){
+      throw new Error("Aucune magikSingleOne correspondant à cette id!");
+      
+  }else{
+      return magikSingleOne   
+  }
+  }
+  
+//   getPickById(gramId: number): GramMagik {
+//    return this._httpClient.find(grammagik => grammagik.id === gramId);
+
+//     if (!pick){
+//         throw new Error("Aucune pick correspondant à cette id!");
+        
+//     }else{
+//         return pick   
+//     }
+//  } 
+
+//  getLikePickById(myPickId: number, likeType: 'like' | 'unlike'): void {
+//     const pick = this.getPickById(myPickId); //utilise la methode getbyid
+//     likeType === 'like' ? pick.like++ : pick.like--;  //va ajoute +1 ou -1
+//  }                                                    //likeType: 'like' | 'unlike'
+//                                                      //likeType === 'like' ? pick.like++ : pick.like--;
+    }
+

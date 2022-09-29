@@ -36,9 +36,14 @@ export class GrammagikSingleComponent implements OnInit {
   gramMagiKs :  any;
   gramMagicss :  any;
   @Output()
-  cartesInfo: any
-  oneCardInfo: any
-  modalCardInfo: boolean =false
+  cartesInfo: any;
+  oneCardInfo: any;
+
+  modalCardInfo: boolean =false;
+
+  like!: number;
+  txtBtnFire!:string;
+  txtBtnHeart!: string;
   produitInfo: any = {
    
     id: "",
@@ -69,11 +74,20 @@ export class GrammagikSingleComponent implements OnInit {
     // }
   }
 
-
+  logoFire: boolean= false;
+  logoHeart: boolean= false;
   // urlSelfie: any;
   boolUrlSelfie= false;
 
   ngOnInit(): void {
+   this.getAllCards()
+  this.like = 7;
+  this.txtBtnFire= ' magikgram m\'enflamme';
+  this.txtBtnHeart= 'Arrêt du coeur'
+    
+  }
+ 
+  getAllCards(){
     const subscriptionEnCours = this._grammagikService.getAll_Observable().subscribe(unTableau => this.gramMagiKs = unTableau);
     
     this._lesSouscriptions.push(subscriptionEnCours);
@@ -84,7 +98,25 @@ export class GrammagikSingleComponent implements OnInit {
   //   console.log(
       
   //   );
+  };
+
+  onAddLike(){
+    if (this.txtBtnHeart=== 'Arrêt du coeur'){
+      // this._grammagikService.update(this.gramMagicss)
+      this.logoHeart = !this.logoHeart
+      this.like++;
+      this.txtBtnHeart= ' Fait battre mon coeur'
+    }else{
+      this.logoHeart = !this.logoHeart
+      this.like--;
+      this.txtBtnHeart= 'Arrêt du coeur'
+    }
     
+    
+  }
+
+  onFire(){
+    this.logoFire = !this.logoFire
   }
 
   clashNav(){
@@ -235,5 +267,16 @@ vUpdate(){
   })  }
 
 
+
+  getByIdTs(currentId: number){
+    const pick = this.gramMagicss.find((gramMagicss: { id: number; }) => gramMagicss.id === currentId);
+
+    if (!pick){
+        throw new Error("Aucune pick correspondant à cette id!");
+        
+    }else{
+        return pick   
+    }
+  }
 
 }

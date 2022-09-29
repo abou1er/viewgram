@@ -44,7 +44,7 @@
               <!-- <div class="w-100"> -->
                 <div class="b-rainbow"></div>
               <!-- </div> -->
-              <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+              <div (click)="recupInfoo(gram)" class="col pb-2">
                 <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
                 <img class="img-fluid"  [src]="gram.urlImg" alt="alt.. alt">
               </div>
@@ -96,33 +96,22 @@
  Modal -->
    <div  class="modal fade" id="MOMOdal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div *ngIf="modalCardInfo" class="modal-content">
+      <div *ngIf="modalCardInfo" style="width: 650px;" class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
-          <h1>body SNDboucle</h1>
+          
           <!-- test biddig -->
           <div class="row">
-            <h2>biding</h2>
-            <input type="text" class="form-control" placeholder="exemple: ici id" name="id"
-                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.id" required>
-
-                <input type="text" class="form-control" placeholder="exemple: ici titre" name="titre"
-                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.titre" required>
+            <h2>Ajouter un reactself-ish pour </h2>
+            <h2>{{oneCardInfo.titre}}</h2>
             
-                <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
-                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.urlSelfie" required>
+                <!-- <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
+                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.urlSelfie" required> -->
 
-                <!-- <p type="text" class="form-control" placeholder="exemple: ici titre" name="titre"
-                aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.titre" required></p> -->
-
-            <p [(ngModel)] ="oneCardInfo.urlImg" > infoimg </p>
-            <p>{{this.oneCardInfo.urlImg}}</p>
-            <p>{{this.oneCardInfo.titre}}</p>
-            <!-- <p>url self {{this.oneCardInfo.urlSelfie}}</p> -->
+              
             
   
           </div>
@@ -141,22 +130,19 @@
             </div>
             <div class="row snapshot" *ngIf="webcamImage">
                 <div class="col">
-                    <h2>Nouveau Selfie!</h2>
-                    <img  [src]="webcamImage.imageAsDataUrl"/>
+                    <h2>Dernier react'selfie pris !</h2>
+                    <img class="img-fluid" [src]="webcamImage.imageAsDataUrl"/>
   
 
 
-                    <input type="text" name="urlSelfie" [(ngModel)]="this.oneCardInfo.urlSelfie">
+                    <!-- <input type="text" name="urlSelfie" [(ngModel)]="this.oneCardInfo.urlSelfie"> -->
                     <button type="submit" data-bs-dismiss="modal" (click)="vUpdate()"> ajout du selfie</button>
                 </div>
 
 
                 
             </div>
-            <div class="row">
-             <h2>retour selfie</h2> 
-            </div>
-    
+           
     
             <div class="col"></div>
         </div>
@@ -184,16 +170,16 @@
 <div *ngFor="let gram of gramMagiKs; let i = index">
 
 
-<div class="row">
+<div class="row mb-5">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
+        <h5 class="card-title">{{gram.id}}</h5>
         <article class="row mb-3 arti shadow">
           <header class="col-12">
             <div class="row">
               <div class="col-7">
-                <h2>{{gram.titre}} {{gram.id}}</h2>
+                <h2>{{gram.titre}} </h2>
               </div>
               <!-- <div class="col text-end">[...]</div> -->
             </div>
@@ -233,22 +219,31 @@
           <div class="col footer pb-2">
             <div class="d-flex">
               <div class="icone">
-                <a class="btn border" data-bs-toggle="modal" data-bs-target="#modalHeart">
-                  <i class="fa-solid fa-heart"></i>
+                <!-- <a class="btn border" (click)="onAddLike()" data-bs-toggle="modal" data-bs-target="#modalHeart"> -->
+                  <a class="btn border" (click)="infoCard(gram);onAddLike()" > 
+                    <span *ngIf="!logoHeart"> <i class="fa-solid fa-heart"></i> {{txtBtnHeart}}</span> 
+
+                  <span *ngIf="logoHeart">❤ 💞  💖  {{txtBtnHeart}}</span> {{like}}
                 </a>
+                
         
               </div>
         
               <!-- Button trigger modal -->
               <div>
         <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
-          CARTEINFO Ajouter un reactSelfie
+          Poster un reactSelfie
         </button>
         </div>
         
               <div class="ms-2">
-                <button (click)="clashNav()" class="btn border btn-light" type="button">
-                  <i class="fa-solid fa-fire-flame-curved"></i>
+                <!-- <button (click)="clashNav()" class="btn border btn-light" type="button"> -->
+                  <button (click)="onFire()" class="btn border btn-light" type="button">
+                  
+                  <span *ngIf="!logoFire"><i class="fa-solid fa-fire-flame-curved"></i></span>
+                  
+                  <span *ngIf="logoFire">🔥 {{txtBtnFire}}✌️</span>
+                  
                 </button>
               </div>
             </div>
@@ -266,12 +261,21 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
+        <h5 class="card-title">reactselfie pris pour {{gram.titre}}</h5>
         <div *ngIf="modalCardInfo" class="row">
-          <h2>retour UPDATE selfie</h2>
-          urlSelfie
+        
+         
+
+
+          <div class="card" style="width: 18rem;">
+            <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="">
+       
+            
+            </div>
+          </div>
+
           <!-- <p>{{gram.urlSelfie}}</p> -->
-          <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="alt.. alt">
+          <!-- <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt=""> -->
         </div>
       </div>
     </div>
