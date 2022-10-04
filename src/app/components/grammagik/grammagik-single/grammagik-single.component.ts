@@ -161,22 +161,34 @@ export class GrammagikSingleComponent implements OnInit {
       // this.txtBtnHeart= 'Arrêt du coeur'
     }
 
-
-    
-    // console.log(id);
-    // console.log(gram.logoHeart);
-    // gram.logoHeart = true
-    // this.oneCardInfo.logoHeart = true;
-    // this.forTrue = true;
-    // console.log('apres ', gram.logoHeart);
-    // console.log("gram.like", gram.like);
-    // this._grammagikService.update(gram).subscribe((data)=> {
-    // console.log("success");
-    
-    // console.log('apres 2', this.oneCardInfo.logoHeart);
-    
-    // })
   }
+
+  updateFire(gram: any, id :any){
+    id= gram.id
+    // good add
+  // gram.like   = gram.like+ 1;
+
+  // console.log('!!gram.logoHeart  ',gram.logoHeart);
+  // gram.logoHeart = !gram.logoHeart
+  // console.log('gram.logoHeart  ',gram.logoHeart);
+  // fin good add
+if (gram.logoFire = gram.logoFire){
+    // this._grammagikService.update(this.gramMagicss)
+    console.log('txtBtnHeart', gram.txtBtnHeart);
+    
+    gram.logoFire = !gram.logoFire
+    
+    console.log('dans le if');
+    
+    // this.txtBtnHeart= ' Fait battre mon coeur'
+  }else{
+    gram.logoFire = !gram.logoFire
+   
+    console.log('dans le else');
+    // this.txtBtnHeart= 'Arrêt du coeur'
+  }
+
+}
 
 
 
