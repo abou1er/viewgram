@@ -16,6 +16,9 @@ export class GramMagik {
     urlSelfie!: any;
     profil!: Profil;
     logoHeart: boolean= false;
+    logoFire:  boolean= false;
+    like = 9;
+    txtBtnHeart: string = 'Arrêt du coeur' ;
 
     constructor(){
         this.profil = new Profil();

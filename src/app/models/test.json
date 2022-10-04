@@ -4,6 +4,10 @@
     "urlImg":"../assets/img/jusTumblr.gif",
     "titre":"Vitamine au max",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 12 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Popeye", "gramMagik": []}
   },
   {
@@ -11,6 +15,10 @@
     "urlImg":"../assets/img/nishika_hypebeast.gif",
     "titre":"Party after partY",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 9 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Simone Veil", "gramMagik": []}
   },
 
@@ -19,6 +27,10 @@
     "urlImg":"../assets/img/05-soupoudrage-cake.gif",
     "titre":"Saupoudrage de perlimpinpin",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 42 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Poter", "gramMagik": []}
   },
   {
@@ -26,6 +38,10 @@
     "urlImg":"../assets/img/02-cocktail-cucumber-rose-soda.gif",
     "titre":"Pétillance exigé",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 36 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Larry", "gramMagik": []}
   },
    {
@@ -33,6 +49,10 @@
     "urlImg":"../assets/img/09-dwich-succulent.gif",
     "titre":"Avec sauce même si elle s'échappe",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 18 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Mister Donald", "gramMagik": []}
   },
   {
@@ -40,6 +60,10 @@
     "urlImg":"../assets/img/07-omelette.gif",
     "titre":"Omelette en chargement",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 33 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Woody Woodpecker", "gramMagik": []}
   },
   {
@@ -47,6 +71,10 @@
     "urlImg":"../assets/img/04-pears-flowers-fruit-food-water.gif",
     "titre":"Wet Fruit",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 20 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Eve", "gramMagik": []}
   },
   {
@@ -54,6 +82,10 @@
     "urlImg":"../assets/img/00intro.gif",
     "titre":"Nettoyeur d'intestin",
     "urlSelfie":"",
+    "logoHeart": false,
+    "logoFire": false,
+    "like": 26 ,
+    "txtBtnHeart": "Bientôt cool",
     "profil":{"nom": "Eve", "gramMagik": []}
   }
 

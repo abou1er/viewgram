@@ -37,7 +37,22 @@ export class GrammagikSingleComponent implements OnInit {
   gramMagicss :  any;
   @Output()
   cartesInfo: any;
-  oneCardInfo: any;
+  // oneCardInfo: any;
+  // oneCardInfologoHeart =false
+  forTrue: boolean = false;
+
+  oneCardInfo: any = {
+    id: "",
+    imageAs64: "",
+    urlImg: "",
+    titre: "",
+    urlSelfie:"",
+    logoHeart: false,
+    logoFire: false,
+    like: Number,
+    txtBtnHeart: 'Kool' ,
+  }
+
 
   modalCardInfo: boolean =false;
 
@@ -51,6 +66,7 @@ export class GrammagikSingleComponent implements OnInit {
     urlImg: "",
     titre: "",
     urlSelfie:"",
+    logoHeart: false,
    
 
     // Profil={
@@ -81,9 +97,11 @@ export class GrammagikSingleComponent implements OnInit {
 
   ngOnInit(): void {
    this.getAllCards()
-  this.like = 7;
-  this.txtBtnFire= ' magikgram m\'enflamme';
-  this.txtBtnHeart= 'Arrêt du coeur'
+  // this.like = 7;
+  // this.txtBtnFire= ' ça m\'enflamme';
+  // this.txtBtnHeart= 'Arrêt du coeur'
+  
+  
     
   }
  
@@ -100,8 +118,10 @@ export class GrammagikSingleComponent implements OnInit {
   //   );
   };
 
-  onAddLike(){
-    if (this.txtBtnHeart=== 'Arrêt du coeur'){
+
+  onAddLike3(){
+    // if (this.txtBtnHeart=== 'Arrêt du coeur'){
+      if (this.logoHeart == false){
       // this._grammagikService.update(this.gramMagicss)
       this.logoHeart = !this.logoHeart
       this.like++;
@@ -114,6 +134,94 @@ export class GrammagikSingleComponent implements OnInit {
     
     
   }
+
+  // updateCC(gram: { like: boolean; id: any; }){
+    updateCC(gram: any, id :any){
+      id= gram.id
+      // good add
+    // gram.like   = gram.like+ 1;
+
+    // console.log('!!gram.logoHeart  ',gram.logoHeart);
+    // gram.logoHeart = !gram.logoHeart
+    // console.log('gram.logoHeart  ',gram.logoHeart);
+    // fin good add
+ if (gram.logoHeart = gram.logoHeart){
+      // this._grammagikService.update(this.gramMagicss)
+      console.log('txtBtnHeart', gram.txtBtnHeart);
+      
+      gram.logoHeart = !gram.logoHeart
+      gram.like--;
+      console.log('dans le if');
+      
+      // this.txtBtnHeart= ' Fait battre mon coeur'
+    }else{
+      gram.logoHeart = !gram.logoHeart
+      gram.like++;
+      console.log('dans le else');
+      // this.txtBtnHeart= 'Arrêt du coeur'
+    }
+
+
+    
+    // console.log(id);
+    // console.log(gram.logoHeart);
+    // gram.logoHeart = true
+    // this.oneCardInfo.logoHeart = true;
+    // this.forTrue = true;
+    // console.log('apres ', gram.logoHeart);
+    // console.log("gram.like", gram.like);
+    // this._grammagikService.update(gram).subscribe((data)=> {
+    // console.log("success");
+    
+    // console.log('apres 2', this.oneCardInfo.logoHeart);
+    
+    // })
+  }
+
+
+
+  onAddLike(gram: any, id : number){
+    
+    this.oneCardInfo = gram;
+    this.forTrue = !this.forTrue
+    // if (this.txtBtnHeart=== 'Arrêt du coeur'){
+      this.oneCardInfo.logoHeart = gram.logoHeart
+      this.oneCardInfo.like = gram.like
+      if (this.oneCardInfo.logoHeart == this.logoHeart){
+      // this._grammagikService.update(this.gramMagicss)
+      this.oneCardInfo.logoHeart = !this.logoHeart;
+      this.oneCardInfo.like  =++ this.oneCardInfo.like;
+      // this.txtBtnHeart= ' Fait battre mon coeur'
+    }else{
+      // this.oneCardInfo.logoHeart = this.logoHeart
+      // this.oneCardInfo.like--;
+      // this.txtBtnHeart= 'Arrêt du coeur'
+    }
+
+    console.log(' INFOLIKE gram', gram);
+    console.log('this.oneCardInfo.logoHeart  ', this.oneCardInfo.logoHeart);
+    
+  }
+
+  infoLike(gram: any){
+    this.oneCardInfo = gram;
+    //  if (this.logoHeart == false){
+    //   // this._grammagikService.update(this.gramMagicss)
+    //   this.oneCardInfo.logoHeart = !this.logoHeart
+    //   this.like++;
+    //   this.txtBtnHeart= ' Fait battre mon coeur'
+    // }else{
+    //   this.oneCardInfo.logoHeart = !this.logoHeart;
+    //   this.like--;
+    //   this.txtBtnHeart= 'Arrêt du coeur'
+    // }
+
+    console.log(' INFOLIKE gram', gram);
+    
+  }
+
+
+
 
   onFire(){
     this.logoFire = !this.logoFire
@@ -150,6 +258,28 @@ export class GrammagikSingleComponent implements OnInit {
     console.log("infoCard() oneCardInfo singlecomponent", this.oneCardInfo)
     
   }
+
+ 
+
+  infoLike2(gram: any){
+    this.oneCardInfo = gram;
+    this.oneCardInfo.logoHeart = !this.logoHeart
+    // if (gram.txtBtnHeart=== 'Arrêt du coeur'){
+    //   // this._grammagikService.update(this.gramMagicss)
+    //   this.oneCardInfo.logoHeart = !this.logoHeart
+    //   this.oneCardInfo.like++;
+    //   gram.txtBtnHeart= ' Fait battre mon coeur';
+    // }else{
+    //   this.oneCardInfo.logoHeart = false;
+    //   this.oneCardInfo.like--;
+    //   gram.txtBtnHeart= 'Arrêt du coeur'
+    // }
+
+    console.log('gram.logoHeart', gram.logoHeart);
+    
+  }
+
+
 
 
   @Output() emitter:EventEmitter<string>

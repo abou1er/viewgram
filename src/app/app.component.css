@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Skranji&display=swap'); /* //  font-family: 'Mochiy Pop One', sans-serif;  font-family: 'Skranji', cursive;   contenue description */
 @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');/* // font-family: 'Henny Penny', cursive;   H2 */
 
-
-
+h1, h2 , h5 {
+    font-family: 'Henny Penny', cursive;
+    /* margin-bottom: -10px; */
+    font-size: 50px;
+  }
 /* .header{
   border: 3px solid greenyellow;
   position: fixed;

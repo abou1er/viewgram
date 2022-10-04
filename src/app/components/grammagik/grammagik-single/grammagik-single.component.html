@@ -67,15 +67,25 @@
           
         
           <div class="w-100"></div>
-          <div class="col footer pb-2">
+          <div class="col skranjiFont footer pb-2">
             <div class="d-flex">
               <div class="icone">
                 <!-- <a class="btn border" (click)="onAddLike()" data-bs-toggle="modal" data-bs-target="#modalHeart"> -->
-                  <a class="btn border" (click)="infoCard(gram);onAddLike()" > 
-                    <span *ngIf="!logoHeart"> <i class="fa-solid fa-heart"></i> {{txtBtnHeart}}</span> 
+                  <!-- <a class="btn border"  >  -->
+                    <a class="btn border" (click)="updateCC(gram, gram.id)" > 
+                     <!-- <a class="btn border" (click)="onAddLike(gram, gram.id)" >  -->
 
-                  <span *ngIf="logoHeart">❤ 💞  💖  {{txtBtnHeart}}</span> {{like}}
-                </a>
+                      
+                      <span> i éagale{{i+1}}....</span>
+                      <span *ngIf="!gram.logoHeart"> <i class="fa-solid fa-heart"></i> {{gram.txtBtnHeart}}</span>{{gram.like}}
+  
+                      <span *ngIf="gram.logoHeart"> 💞  💖 {{gram.like}}</span> 
+            
+                      <div class="forTrue" *ngIf="forTrue">
+                    <span *ngIf="oneCardInfo.logoHeart"> 💞  💖  {{oneCardInfo.like}}</span> 
+                    </div>
+                    
+                  </a>
                 
         
               </div>
@@ -83,6 +93,7 @@
               <!-- Button trigger modal -->
               <div>
         <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#MOMOdal">
+          
           Poster un reactSelfie
         </button>
         </div>
@@ -112,7 +123,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">reactselfie pris pour {{gram.titre}}</h5>
+        <h5 class="card-title">reactSelfie pris pour {{gram.titre}}</h5>
         <div *ngIf="modalCardInfo" class="row">
         
          
@@ -148,8 +159,8 @@
       <div class="modal-body">
         
         <!-- test biddig -->
-        <div class="row">
-          <h2>Ajouter un reactself-ish pour </h2>
+        <div class="row skranjiFont">
+          <h2>Ajouter un reactSelfie pour </h2>
           <h2>{{oneCardInfo.titre}}</h2>
           
               <!-- <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
@@ -174,7 +185,7 @@
           </div>
           <div class="row snapshot" *ngIf="webcamImage">
               <div class="col">
-                  <h2>Dernier react'selfie pris !</h2>
+                  <h2>Dernier reactSelfie pris !</h2>
                   <img class="img-fluid" [src]="webcamImage.imageAsDataUrl"/>
 
 
