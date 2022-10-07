@@ -14,11 +14,13 @@ export class GramMagik {
     urlImg!: string;
     titre!: string;
     urlSelfie!: any;
+    urlSelfie2!: any;
+    urlSelfie3!: any;
     profil!: Profil;
     logoHeart: boolean= false;
     logoFire:  boolean= false;
-    like = 9;
-    txtBtnHeart: string = 'Arrêt du coeur' ;
+    like!: number;
+    txtBtnHeart: string = 'Bientôt cool' ;
 
     constructor(){
         this.profil = new Profil();

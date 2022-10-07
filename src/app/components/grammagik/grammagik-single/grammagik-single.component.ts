@@ -41,12 +41,24 @@ export class GrammagikSingleComponent implements OnInit {
   // oneCardInfologoHeart =false
   forTrue: boolean = false;
 
+  objetUrlSelfie: any = {
+    urlSelfie:"",
+    urlSelfie2:"",
+    urlSelfie3:"",
+  }
+  objetUrlSelfie2: any = {
+    urlSelfie:"",
+    urlSelfie2:"",
+    urlSelfie3:"",
+  }
+
   oneCardInfo: any = {
     id: "",
     imageAs64: "",
     urlImg: "",
     titre: "",
     urlSelfie:"",
+    urlSelfie2:"",
     logoHeart: false,
     logoFire: false,
     like: Number,
@@ -119,21 +131,6 @@ export class GrammagikSingleComponent implements OnInit {
   };
 
 
-  onAddLike3(){
-    // if (this.txtBtnHeart=== 'Arrêt du coeur'){
-      if (this.logoHeart == false){
-      // this._grammagikService.update(this.gramMagicss)
-      this.logoHeart = !this.logoHeart
-      this.like++;
-      this.txtBtnHeart= ' Fait battre mon coeur'
-    }else{
-      this.logoHeart = !this.logoHeart
-      this.like--;
-      this.txtBtnHeart= 'Arrêt du coeur'
-    }
-    
-    
-  }
 
   // updateCC(gram: { like: boolean; id: any; }){
     updateCC(gram: any, id :any){
@@ -165,13 +162,6 @@ export class GrammagikSingleComponent implements OnInit {
 
   updateFire(gram: any, id :any){
     id= gram.id
-    // good add
-  // gram.like   = gram.like+ 1;
-
-  // console.log('!!gram.logoHeart  ',gram.logoHeart);
-  // gram.logoHeart = !gram.logoHeart
-  // console.log('gram.logoHeart  ',gram.logoHeart);
-  // fin good add
 if (gram.logoFire = gram.logoFire){
     // this._grammagikService.update(this.gramMagicss)
     console.log('txtBtnHeart', gram.txtBtnHeart);
@@ -338,10 +328,14 @@ public errors: WebcamInitError[] = [];
 // latest snapshot
 public webcamImage!: WebcamImage;
 
+// test
+// latest snapshot
+public webcamImage2!:any;
+// fin test webcam
+
 
 // webcam snapshot trigger
 private trigger: Subject<void> = new Subject<void>();
-
 
 
 
@@ -365,31 +359,30 @@ public handleImage(webcamImage: WebcamImage): void {
   
   // console.info('received webcam image', webcamImage);
   this.webcamImage = webcamImage;
+  this.objetUrlSelfie = this.webcamImage;
+  // console.log(' handleImage this.webcamImage', this.webcamImage);
 
-  console.log('this.webcamImage', this.webcamImage);
-// console.log("this.produitInfo.titre ", this.produitInfo.titre);
-
-//   // this.grammagikSingle.id= 8,
-//   this.grammagikSingle.urlImg= this.produitInfo.urlImg,
-//   this.grammagikSingle.titre= "this.produitInfo.titre",
-//   this.produitInfo.urlSelfie
-//   // this.grammagikSingle.urlSelfie= this.produitInfo.urlSelfie,
 
 
 //   // test sans method service patch
-  this.oneCardInfo.urlSelfie= webcamImage.imageAsDataUrl;
-//   this.grammagikSingle.urlSelfie= this.produitInfo.urlSelfie,
-//   console.log("handleImage", this.grammagikSingle.urlSelfie);
+  this.oneCardInfo.urlSelfie= this.objetUrlSelfie.imageAsDataUrl;
 
-//   // this.grammagikSingle.id = this.produitInfo.id
-//   //   this.grammagikSingle.urlSelfie = this.produitInfo.urlSelfie
- 
-//   // test avec method service patch
-//   // this.vUpdate()
-//   console.log("handleImage", this.grammagikSingle);
+// console.log('this.oneCardInfo.urlSelfie 1 1 1 ',  this.oneCardInfo.urlSelfie);
   
+// this.updateSelfie1(this.objetUrlSelfie)
+console.log('this.objetUrlSelfie  ',this.objetUrlSelfie);
+
+
   
-  
+}
+
+
+
+updateSelfie1(gram: any){
+  // id= gram.id
+  gram.urlSelfie = this.oneCardInfo.urlSelfie;
+  // = this.webcamImage.imageAsDataUlog 
+  console.log('updateSelfie  gram.urlSelfie1 1 1 1 ',  gram.urlSelfie);
 }
 
 

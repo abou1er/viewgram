@@ -21,9 +21,9 @@
 
 
     <div class="row mb-5">
-      <div class="col-sm-6">
+      <div class="col-sm-12 col-xl-6">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body col-md">
             <h5 class="card-title">{{gram.id}} numéro {{i+1}} de la liste</h5>
             <article class="row mb-3 arti shadow">
               <header class="col-12">
@@ -69,7 +69,10 @@
 
               <!-- test fFOOTER -->
               <footer class=" pb-2  skranjiFont border bg-light">
-                <div class="b-rainbow2 mb-5 "></div>
+                <div class="containerRainbow">
+                  <div class="mini-b-rainbow fixed mb-5 me-5"></div>
+                </div>
+                
 
                 <div class="row mt-3 pb-1 iconeFooter">
                   <div class="col text-center f-w-5"> <!---bouton fire-->
@@ -82,7 +85,7 @@
   
                         <span *ngIf="!gram.logoHeart"> <i class="fa-solid fa-heart"></i> {{gram.like}}</span>
   
-                        <span *ngIf="gram.logoHeart"> 💞 💖 {{gram.like}}</span>
+                        <span *ngIf="gram.logoHeart"> 💞 {{gram.like}} 💖</span>
   
   
                       </a>
@@ -94,11 +97,16 @@
                   <div class="col text-center"> <!---bouton poster--->
                     <!-- Button trigger modal SELFIE-->
                   <div>
-                    <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal"
+
+                    <button (click)="infoCard(gram)" class="but-nft  rainbow rainbow-1 " type="button" data-bs-toggle="modal"
+                    data-bs-target="#MOMOdal" >Poster un reactSelfie</button>
+                     
+
+                    <!-- <button type="button" (click)="infoCard(gram)" class="btn btn-primary" data-bs-toggle="modal"
                       data-bs-target="#MOMOdal">
 
                       Poster un reactSelfie
-                    </button>
+                    </button> -->
                   </div>                    
 
                   </div>
@@ -112,7 +120,7 @@
   
                         <span *ngIf="!gram.logoFire"><i class="fa-solid fa-fire-flame-curved"></i></span>
   
-                        <span *ngIf="gram.logoFire">🔥 {{txtBtnFire}}✌️</span>
+                        <span *ngIf="gram.logoFire">🔥 {{gram.txtBtnFire}}</span>
   
                       </button>
                     </div>
@@ -134,20 +142,19 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-12 col-xl-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">reactSelfie pris pour {{gram.titre}}</h5>
             <div *ngIf="modalCardInfo" class="row">
 
-
-
-
-              <div class="card" style="width: 18rem;">
+              <div class="card ms-3 border " style="width: 18rem;">
                 <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="">
-
-
               </div>
+
+            
+
+
             </div>
 
             <!-- <p>{{gram.urlSelfie}}</p> -->
@@ -156,26 +163,29 @@
         </div>
       </div>
     </div>
+
+
+  
+
   </div>
 
 
 
-
-
+  <!-- /*************************** -->
+<!-- test modal move -->
   <!-- Modal selfie -->
   <div class="modal fade" id="MOMOdal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div *ngIf="modalCardInfo" style="width: 650px;" class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title skranjiFont" id="exampleModalLabel">Ajouter un reactSelfie pour {{oneCardInfo.titre}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
           <!-- test biddig -->
           <div class="row skranjiFont">
-            <h2>Ajouter un reactSelfie pour </h2>
-            <h2>{{oneCardInfo.titre}}</h2>
+         
 
             <!-- <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
               aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.urlSelfie" required> -->
@@ -186,39 +196,59 @@
           </div>
           <!-- fin test bidig -->
           <div class="row">
-            <div class="col">Prendre un selfie :
-              <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+            <div class="col">webcam avant :
+              <webcam [height]="400" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
                 [videoOptions]="videoOptions" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
 
-              <button class="actionBtn" (click)="triggerSnapshot();">Prendre un selfie</button>
+              <!-- <button class="mt-4 mb-4 actionBtn" (click)="triggerSnapshot();">Ajouter un reactselfie ! 😎</button> -->
+
+              <div class="row mt-4 mb-4">
+                <div class="col-4"> <button class=" pt-2 actionBtn" (click)="triggerSnapshot();">Ajouter un reactselfie ! 😎</button></div>
+                <div class="col-8"> <p>Pour des raisons de droits d'image, aucun selfie pris depuis l' application est envoyé ou enregistré dans la base de donnée 🌜 🌝 🤓😁</p> </div>
+              </div>
 
             </div>
             <div class="row snapshot" *ngIf="webcamImage">
               <div class="col">
-                <h2>Dernier reactSelfie pris !</h2>
-                <img class="img-fluid" [src]="webcamImage.imageAsDataUrl" />
+                <h5>Dernier reactSelfie pris !</h5>
+                <img class="img-fluid" [width]="400"  [src]="webcamImage.imageAsDataUrl" />
 
 
-
-                <!-- <input type="text" name="urlSelfie" [(ngModel)]="this.oneCardInfo.urlSelfie"> -->
-                <button type="submit" data-bs-dismiss="modal" (click)="vUpdate()"> ajout du selfie</button>
               </div>
 
-
+              <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Le reactselfie a bien été ajouté ! 😎</button>
+            </div> -->
 
             </div>
 
 
-            <div class="col"></div>
+            <!-- <div class="col"></div> -->
           </div>
+
+
+
+
+
+
+
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" (click)="vUpdate()"></button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- FNI MODAL -->
+
+<!-- fin test modalmove -->
+<!-- **/*/*///////////////////////// -->
+
+
+
   <br><br>
 
 
