@@ -153,13 +153,13 @@ export class GrammagikSingleComponent implements OnInit {
       
       gram.logoHeart = !gram.logoHeart
       gram.like--;
-      console.log('dans le if');
+      console.log('dans le if', gram.logoHeart );
       
       // this.txtBtnHeart= ' Fait battre mon coeur'
     }else{
       gram.logoHeart = !gram.logoHeart
       gram.like++;
-      console.log('dans le else');
+      console.log('dans le else', gram.logoHeart);
       // this.txtBtnHeart= 'Arrêt du coeur'
     }
 

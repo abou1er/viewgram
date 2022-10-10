@@ -95,3 +95,6 @@ background-size: 1800% 1800%;
     100%{background-position:0% 82%}
 }
 
+h1{
+    color: grey;
+}

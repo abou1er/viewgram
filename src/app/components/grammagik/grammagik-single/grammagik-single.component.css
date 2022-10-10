@@ -228,6 +228,7 @@ background-size: 180% 180%;
     height: 250px; */
     margin:  auto 0;
     background: linear-gradient(0deg, #000, #272727);
+    /* backdrop-filter: blur(15px); */
   }
   
 /* .z-inde{
@@ -246,6 +247,7 @@ background-size: 180% 180%;
     height: calc(100% + 4px);
     z-index: -1;
     animation: steam 20s linear infinite;
+    backdrop-filter: blur(15px);
   }
   
   @keyframes steam {

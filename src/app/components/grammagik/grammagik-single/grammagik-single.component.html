@@ -3,7 +3,7 @@
     </div>
   </main> -->
 
-<div class="border container-fluid bg-light shadow border-warning">
+<div class="border container-fluid bg-transparent shadow border-warning">
 
 
 
@@ -39,8 +39,9 @@
 
               </header>
               <!-- <div class="b-rainbow"></div> -->
-              <div class="row block">
-                <div class="col-6">
+              <!-- <div class="row block"> -->
+                <div class="row" [ngClass]="{block: gram.logoHeart && gram.logoFire === true }">
+                <div class="col-6 " >
 
 
                   <!-- <div class="w-100"> -->
@@ -53,10 +54,10 @@
 
                 </div>
 
-                <div class="col-6">
+                <div class="col-6 mirroir">
                   <!-- <div class="rota"> -->
                     <!-- <div class="w-100"> -->
-                    <div class="b-rainbow mirroir"></div>
+                    <div class="b-rainbow "></div>
                     <!-- </div> -->
                     <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
                       <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
@@ -146,16 +147,16 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">reactSelfie pris pour {{gram.titre}}</h5>
-            <div *ngIf="modalCardInfo" class="row">
+            <div *ngIf="modalCardInfo" class="row d-flex justify-content-center">
 
-              <div class="card ms-3 border  " style="width: 18rem;">
+              <div class="card ms-3 border shadow-lg " style="width: 18rem;">
                 <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="">
               </div>
 
             
               
             </div>
-            <button   (click)="recupInfoToDel(gram.id)"  style="width: 15%;" type="button" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>    </button>
+            <!-- delete supprimer <button   (click)="recupInfoToDel(gram.id)"  style="width: 15%;" type="button" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>    </button> -->
 
             <!-- <p>{{gram.urlSelfie}}</p> -->
             <!-- <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt=""> -->
@@ -178,7 +179,7 @@
     <div class="modal-dialog skranjiFont">
       <div *ngIf="modalCardInfo" style="width: 650px;" class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title skranjiFont" id="exampleModalLabel">Ajouter un reactSelfie pour {{oneCardInfo.titre}}</h5>
+          <h5 class="modal-title skranjiFont" id="exampleModalLabel">Prendre le reactSelfie pour {{oneCardInfo.titre}}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
