@@ -33,9 +33,15 @@ export const environment = {
     // bdd get et patch avec urlSelfie 1000/
     //url: ' https://2c4994fb-1a63-4218-81dc-3c1ab2d21311.mock.pstmn.io/grammagiks'
 
+    
 
     // bdd get et patch avec urlSelfie *3
-    url: ' https://d9049213-9658-4243-b7ce-e0af2014993a.mock.pstmn.io/grammagiks'
+    //url: ' https://d9049213-9658-4243-b7ce-e0af2014993a.mock.pstmn.io/grammagiks'
+
+     // bdd get  patch delet avec urlSelfie *3
+     url: ' https://c6577378-21fb-4b9b-871f-2eb6adc211e5.mock.pstmn.io/grammagiks'
+
+
   }
   },
 };

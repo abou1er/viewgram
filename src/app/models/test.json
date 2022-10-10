@@ -1,7 +1,7 @@
 [
   {
     "id":2,
-    "urlImg":"../ass5ets/img/cadeau-peter-pan-wendy-dance.gif",
+    "urlImg":"../assets/img/cadeau-peter-pan-wendy-dance.gif",
     "titre":"Bougie souvenir de Peter Pan",
     "urlSelfie":"",
     "urlSelfie2":"",
@@ -14,7 +14,7 @@
   },
   {
     "id":3,
-    "urlImg":"../ass5ets/img/toujours-bien-moulu.gif",
+    "urlImg":"../assets/img/toujours-bien-moulu.gif",
     "titre":"Toujours bien moulu",
     "urlSelfie":"",
     "urlSelfie2":"",
@@ -27,7 +27,7 @@
   },
   {
     "id":4,
-    "urlImg":"../ass5ets/img/ice-tea.gif",
+    "urlImg":"../assets/img/ice-tea.gif",
     "titre":"L' ice tea",
     "urlSelfie":"",
     "urlSelfie2":"",
@@ -40,7 +40,7 @@
   },
   {
     "id":5,
-    "urlImg":"../ass5ets/img/une-clé-pour-mr-potter.gif",
+    "urlImg":"../assets/img/une-clé-pour-mr-potter.gif",
     "titre":"Une clé pour Mr Potter",
     "urlSelfie":"",
     "urlSelfie2":"",
