@@ -3,13 +3,16 @@
     </div>
   </main> -->
 
-<div class="border container-fluid border-warning">
+<div class="border container-fluid bg-light shadow border-warning">
 
 
 
 
+<!-- 
+  <div class="block">
 
-
+    <h1>test </h1> 
+  </div> -->
 
 
 
@@ -36,7 +39,7 @@
 
               </header>
               <!-- <div class="b-rainbow"></div> -->
-              <div class="row">
+              <div class="row block">
                 <div class="col-6">
 
 
@@ -51,16 +54,16 @@
                 </div>
 
                 <div class="col-6">
-                  <div class="rota">
+                  <!-- <div class="rota"> -->
                     <!-- <div class="w-100"> -->
-                    <div class="b-rainbow"></div>
+                    <div class="b-rainbow mirroir"></div>
                     <!-- </div> -->
                     <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
                       <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
                       <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
               </div>
               <!-- fin row body -->
 
@@ -132,50 +135,47 @@
 
 
 
-
-    
-
-
-
             </article>
 
           </div>
         </div>
       </div>
+
+      <!-- COTER RETOUR SELFI ************************* -->
       <div class="col-sm-12 col-xl-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">reactSelfie pris pour {{gram.titre}}</h5>
             <div *ngIf="modalCardInfo" class="row">
 
-              <div class="card ms-3 border " style="width: 18rem;">
+              <div class="card ms-3 border  " style="width: 18rem;">
                 <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt="">
               </div>
 
             
-
-
+              
             </div>
+            <button   (click)="recupInfoToDel(gram.id)"  style="width: 15%;" type="button" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>    </button>
 
             <!-- <p>{{gram.urlSelfie}}</p> -->
             <!-- <img class="img-fluid" name="urlImg" style="width: 400px;" [src]="gram.urlSelfie" alt=""> -->
           </div>
         </div>
       </div>
+      <!-- FIN COTE RETOUR SELFI ************************* -->
+
+
     </div>
 
 
-  
-
-  </div>
 
 
 
-  <!-- /*************************** -->
-<!-- test modal move -->
+
+  <!-- /*************************** --> 
   <!-- Modal selfie -->
   <div class="modal fade" id="MOMOdal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog skranjiFont">
       <div *ngIf="modalCardInfo" style="width: 650px;" class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title skranjiFont" id="exampleModalLabel">Ajouter un reactSelfie pour {{oneCardInfo.titre}}</h5>
@@ -183,28 +183,16 @@
         </div>
         <div class="modal-body">
 
-          <!-- test biddig -->
-          <div class="row skranjiFont">
-         
-
-            <!-- <input type="text" class="form-control" placeholder="exemple: ici urlSelfie" name="urlSelfie"
-              aria-describedby="basic-addon3" [(ngModel)]="oneCardInfo.urlSelfie" required> -->
-
-
-
-
-          </div>
-          <!-- fin test bidig -->
           <div class="row">
-            <div class="col">webcam avant :
+            <div class="col">Portrait :
               <webcam [height]="400" [width]="400" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
                 [videoOptions]="videoOptions" [imageQuality]="1" (initError)="handleInitError($event)"></webcam>
 
               <!-- <button class="mt-4 mb-4 actionBtn" (click)="triggerSnapshot();">Ajouter un reactselfie ! 😎</button> -->
 
               <div class="row mt-4 mb-4">
-                <div class="col-4"> <button class=" pt-2 actionBtn" (click)="triggerSnapshot();">Ajouter un reactselfie ! 😎</button></div>
-                <div class="col-8"> <p>Pour des raisons de droits d'image, aucun selfie pris depuis l' application est envoyé ou enregistré dans la base de donnée 🌜 🌝 🤓😁</p> </div>
+                <div class="col-4"> <button class="but-nft  rainbow rainbow-1 pt-2 actionBtn" (click)="triggerSnapshot();">Ajouter un reactselfie ! 😎</button></div>
+                <div class="col-8"> <p>Pour des raisons de droits d'image, aucun selfie pris depuis l' application est envoyé ou enregistré dans la base de donnée 🌜 🌝 </p> </div>
               </div>
 
             </div>
@@ -216,22 +204,9 @@
 
               </div>
 
-              <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Le reactselfie a bien été ajouté ! 😎</button>
-            </div> -->
-
             </div>
 
-
-            <!-- <div class="col"></div> -->
           </div>
-
-
-
-
-
-
-
 
         </div>
         <div class="modal-footer">
@@ -242,10 +217,44 @@
     </div>
   </div>
 
-  <!-- FNI MODAL -->
+  <!-- FNI MODAL SELFIE ******************** -->
 
 <!-- fin test modalmove -->
 <!-- **/*/*///////////////////////// -->
+
+
+
+
+
+    <!-- DELETE MODAL -->
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">supprimer reactSelfie {{this.produitInfo.titre}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card ms-3 border " style="width: 18rem;">
+          <img class="img-fluid" name="urlImg" style="width: 200px;" [src]="gram.urlSelfie" alt="">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">confirmer suppression</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- FINDELETE MODAL -->
+
+  </div>
+
+
+
 
 
 

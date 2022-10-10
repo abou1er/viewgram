@@ -71,6 +71,7 @@ export class GrammagikSingleComponent implements OnInit {
   like!: number;
   txtBtnFire!:string;
   txtBtnHeart!: string;
+
   produitInfo: any = {
    
     id: "",
@@ -78,7 +79,11 @@ export class GrammagikSingleComponent implements OnInit {
     urlImg: "",
     titre: "",
     urlSelfie:"",
+    urlSelfie2:"",
     logoHeart: false,
+    logoFire: false,
+    like: Number,
+    txtBtnHeart: 'Kool' ,
    
 
     // Profil={
@@ -252,6 +257,13 @@ if (gram.logoFire = gram.logoFire){
     
   }
 
+  recupInfoToDel(id: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
+    this.produitInfo.id = id;
+    console.log('recupInfoToDel() logthis.produitInfo  ' ,this.produitInfo);
+    
+  }
+
+
 
   infoCard(gram: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
     this.modalCardInfo= true;
@@ -369,8 +381,8 @@ public handleImage(webcamImage: WebcamImage): void {
 
 // console.log('this.oneCardInfo.urlSelfie 1 1 1 ',  this.oneCardInfo.urlSelfie);
   
-// this.updateSelfie1(this.objetUrlSelfie)
-console.log('this.objetUrlSelfie  ',this.objetUrlSelfie);
+this.updateSelfie1(this.oneCardInfo)
+// console.log('this.objetUrlSelfie  ',this.objetUrlSelfie);
 
 
   
@@ -382,7 +394,7 @@ updateSelfie1(gram: any){
   // id= gram.id
   gram.urlSelfie = this.oneCardInfo.urlSelfie;
   // = this.webcamImage.imageAsDataUlog 
-  console.log('updateSelfie  gram.urlSelfie1 1 1 1 ',  gram.urlSelfie);
+  console.log('updateSelfie() look  gram.urlSelfie1 1 1 1 ',  gram.urlSelfie);
 }
 
 

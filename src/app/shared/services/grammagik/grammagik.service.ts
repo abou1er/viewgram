@@ -105,6 +105,14 @@ update(v:any): Observable<GramMagik> {
   }
 
 
+  updateSelf(objet:any){
+    return this._httpClient.patch(environment.apis.grammagik.url+ '/' +objet.id,objet);
+  
+  }
+  
+  deleteSelf(id:any){
+    return this._httpClient.delete(environment.apis.grammagik.url+ '/' +id);
+  }
 
   getByIdService(gramId: number):any{
     const magikSingleOne = this.theyAllGramMagics.find((magikSingleOne: any) => magikSingleOne.id === gramId)
