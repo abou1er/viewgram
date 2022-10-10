@@ -2,8 +2,13 @@
        
     </div>
   </main> -->
+  <div class="d-flex justify-content-end">
+    <button     style="width: 15%;" type="button" class="btn me-5 mb-4 btn-danger"data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>    </button>
 
-<div class="border container-fluid bg-transparent shadow border-warning">
+
+  </div>
+ 
+<div class="border container-fluid bg-transparent shadow p-5  border-warning">
 
 
 
@@ -45,9 +50,10 @@
 
 
                   <!-- <div class="w-100"> -->
-                  <div class="b-rainbow"></div>
+                  
                   <!-- </div> -->
                   <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+                    <div class="b-rainbow"></div>
                     <div class="b-rainbow "></div>
                     <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
                   </div>
@@ -60,7 +66,7 @@
                     <div class="b-rainbow "></div>
                     <!-- </div> -->
                     <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
-                      <div class="b-rainbow img-fluid sm lg-3 md-5"></div>
+                      <div class="b-rainbow "></div>
                       <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
                     </div>
                   </div>
@@ -144,9 +150,10 @@
 
       <!-- COTER RETOUR SELFI ************************* -->
       <div class="col-sm-12 col-xl-6">
+        
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">reactSelfie pris pour {{gram.titre}}</h5>
+            <h5 class="card-title"> <strong>reactSelfie</strong>  pris pour  {{gram.titre}}</h5>
             <div *ngIf="modalCardInfo" class="row d-flex justify-content-center">
 
               <div class="card ms-3 border shadow-lg " style="width: 18rem;">
@@ -234,7 +241,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="deleteModalLabel">supprimer reactSelfie {{this.produitInfo.titre}}</h1>
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Supprimer l'ensemble des selfies</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -244,7 +251,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">confirmer suppression</button>
+        <button type="button" (click)="getAllCards()" data-bs-dismiss="modal" class="btn btn-danger">confirmer la suppression</button>
       </div>
     </div>
   </div>
