@@ -72,6 +72,8 @@ export class GrammagikSingleComponent implements OnInit {
   txtBtnFire!:string;
   txtBtnHeart!: string;
 
+  singleCardModal: any;
+
   produitInfo: any = {
    
     id: "",
@@ -250,10 +252,10 @@ if (gram.logoFire = gram.logoFire){
   recupInfoo(g: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
     this.produitInfo = g;
     console.log("recupInfoo this.produitInfo singlecomponent", this.produitInfo)
-    this.grammagikSingle.id = this.produitInfo.id
-    this.grammagikSingle.urlSelfie = this.produitInfo.urlSelfie
-    console.log("recupInfoo this.grammagikSingle.id ",  this.grammagikSingle.id);
-    console.log("recupInfoo this.grammagikSingle.urlSelfie ",  this.grammagikSingle.urlSelfie);
+    // this.grammagikSingle.id = this.produitInfo.id
+    // this.grammagikSingle.urlSelfie = this.produitInfo.urlSelfie
+    // console.log("recupInfoo this.grammagikSingle.id ",  this.grammagikSingle.id);
+    // console.log("recupInfoo this.grammagikSingle.urlSelfie ",  this.grammagikSingle.urlSelfie);
     
   }
 
@@ -270,6 +272,14 @@ if (gram.logoFire = gram.logoFire){
     this.oneCardInfo = gram;
     
     console.log("infoCard() oneCardInfo singlecomponent", this.oneCardInfo)
+    
+  }
+
+  infoSingleCard(gram: any){ //p fera référence à l'objet qui sera récupéré en html dans ma boucle *ngFor //créer d'abord un objet vide qui contiendra p
+    // this.modalCardInfo= true;
+    this.singleCardModal = gram;
+    
+    console.log("infoSingleCard()  singleCardModal singlecomponent", this. singleCardModal)
     
   }
 

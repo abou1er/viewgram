@@ -2,11 +2,18 @@
        
     </div>
   </main> -->
-  <div class="d-flex justify-content-end">
+
+  <!-- <div class="sticky-sm-top bg-light">Stick to the top on viewports sized SM (small) or wider</div>
+<div class="sticky-md-top bg-light">Stick to the top on viewports sized MD (medium) or wider</div>
+<div class="sticky-lg-top bg-light">Stick to the top on viewports sized LG (large) or wider</div>
+<div class="sticky-xl-top bg-light">Stick to the top on viewports sized XL (extra-large) or wider</div> -->
+<div class="sticky-top bg-transparent">
+  <div class="d-flex  justify-content-end">
     <button     style="width: 15%;" type="button" class="btn me-5 mb-4 btn-danger"data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash"></i>    </button>
 
-
   </div>
+</div> 
+
  
 <div class="border container-fluid bg-transparent shadow p-5  border-warning">
 
@@ -45,6 +52,10 @@
               </header>
               <!-- <div class="b-rainbow"></div> -->
               <!-- <div class="row block"> -->
+                <!-- Button  SINGLE CARD  -->
+<div (click)="infoSingleCard(gram)" type="button" class="bg-transparent" data-bs-toggle="modal" data-bs-target="#singleCard">
+  
+
                 <div class="row" [ngClass]="{block: gram.logoHeart && gram.logoFire === true }">
                 <div class="col-6 " >
 
@@ -52,7 +63,7 @@
                   <!-- <div class="w-100"> -->
                   
                   <!-- </div> -->
-                  <div (click)="consultMagikgram(); recupInfoo(gram)" class="col pb-2">
+                  <div (click)=" recupInfoo(gram)" class="col pb-2">
                     <div class="b-rainbow"></div>
                     <div class="b-rainbow "></div>
                     <img class="img-fluid" [src]="gram.urlImg" alt="alt.. alt">
@@ -74,7 +85,7 @@
               </div>
               <!-- fin row body -->
 
-
+            </div>
               <div class="w-100"></div>
 
               <!-- test fFOOTER -->
@@ -176,6 +187,111 @@
     </div>
 
 
+    <!-- MODAL SINGLE CARD -->
+<!-- Modal -->
+<div class="modal fade" id="singleCard" tabindex="-1" aria-labelledby="singleCardLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" style="backdrop-filter: blur(5px);">
+    <div *ngIf="singleCardModal" class="modal-content ">
+      <div class="modal-header">
+        <h1 class="modal-title skranjiFont fs-5" id="singleCardLabel">{{singleCardModal.titre}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row" [ngClass]="{block: singleCardModal }">
+          <div class="d-flex justify-content-center">
+          <div class="col-6 " >
+
+
+            <!-- <div class="w-100"> -->
+             
+            <!-- </div> -->
+            <div class="col pb-2">
+              <div class="b-rainbow"></div>
+              <div class="b-rainbow "></div>
+              
+              <img class="img-fluid" [src]="singleCardModal.urlImg" alt="alt.. alt">
+            </div>
+            
+
+          </div>
+
+        </div>
+        <div class="row skranjiFont">
+          <div class="d-flex justify-content-end">
+          <p>by {{singleCardModal.profil.nom}}</p>
+        </div>
+        </div>
+      </div>
+        <!-- fin row body -->
+
+      </div>
+        <div class="w-100"></div>
+
+        <!-- test fFOOTER -->
+        <footer class=" pb-2  skranjiFont border bg-light">
+          <div class="containerRainbow">
+            <div class="mini-b-rainbow fixed mb-5 me-5"></div>
+          </div>
+          
+
+          <div class="row mt-3 pb-1 iconeFooter">
+            <div class="col text-center f-w-5"> <!---bouton fire-->
+
+              <div class="icone">
+                <!-- <a class="btn border" (click)="onAddLike()" data-bs-toggle="modal" data-bs-target="#modalHeart"> -->
+                <!-- <a class="btn border"  >  -->
+                <a class="btn border" (click)="updateCC(singleCardModal, singleCardModal.id)">
+                  <!-- <a class="btn border" (click)="onAddLike(singleCardModal, singleCardModal.id)" >  -->
+
+                  <span *ngIf="!singleCardModal.logoHeart"> <i class="fa-solid fa-heart"></i> {{singleCardModal.like}}</span>
+
+                  <span *ngIf="singleCardModal.logoHeart"> 💞 {{singleCardModal.like}} 💖</span>
+
+
+                </a>
+              </div>
+
+
+            </div>
+
+            <div class="col text-center"> <!---bouton poster--->
+              <!-- Button trigger modal SELFIE-->
+            <div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+               
+
+              <!-- <button type="button" (click)="infoCard(singleCardModal)" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#MOMOdal">
+
+                Poster un reactSelfie
+              </button> -->
+            </div>                    
+
+            </div>
+
+
+
+            <div class="col text-center">  <!---bouton flamme--->
+              <div class="ms-2">
+                <!-- <button (click)="clashNav()" class="btn border btn-light" type="button"> -->
+                <button (click)="updateFire(singleCardModal, singleCardModal.id)" class="btn border btn-light" type="button">
+
+                  <span *ngIf="!singleCardModal.logoFire"><i class="fa-solid fa-fire-flame-curved"></i></span>
+
+                  <span *ngIf="singleCardModal.logoFire">🔥 {{singleCardModal.txtBtnFire}}</span>
+
+                </button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    
+    </div>
+  </div>
+
+
+    <!-- FIN MODAL SINGLE CARD -->
 
 
 
@@ -241,7 +357,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="deleteModalLabel">Supprimer l'ensemble des selfies</h1>
+        <h1 class="modal-title skranjiFont fs-5" id="deleteModalLabel">Supprimer l'ensemble des selfies</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -250,7 +366,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
         <button type="button" (click)="getAllCards()" data-bs-dismiss="modal" class="btn btn-danger">confirmer la suppression</button>
       </div>
     </div>
